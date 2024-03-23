@@ -20,28 +20,19 @@ if (is_file($hinhpath)) {
   <div class="divkhungaddsp">
     <form action="index.php?act=updatesp" method="post" enctype="multipart/form-data">
       <div class="form-group">
-        Danh mục cha
-        <select name="ma_danh_muc" id="">
+        Danh mục con <br>
+        <select name="ma_danh_muc_con" id="">
           <option value="0" selected>Tất cả</option>
           <?php
-          foreach ($listdanhmuc as $danhmuc) {
-            if ($ma_danh_muc == $danhmuc['ma_danhmuc']) $s = "selected";
-            else $s = "";
-            echo '<option value="' . $danhmuc['ma_danhmuc'] . '" ' . $s . '>' . $danhmuc['ten_danhmuc'] . '</option>';
-          }
-          ?>
-        </select><br>
-        Danh mục con
-        <select class="select" name="ma_danh_muc_con">
-          <?php
           foreach ($listdanhmuc_con as $danhmuccon) {
-            extract($danhmuccon);
-            echo '<option value="' . $ma_danhmuc_con . '">' . $ten_danhmuc_con . '</option>';
+            if ($ma_danh_muc_con == $danhmuccon['ma_danhmuc_con']) $s = "selected";
+            else $s = "";
+            echo '<option value="' . $danhmuccon['ma_danhmuc_con'] . '" ' . $s . '>' . $danhmuccon['ten_danhmuc_con'] . '</option>';
           }
           ?>
         </select>
-
       </div>
+
       <div class="khungformaddsp"></div>
       <div class="form-group">
         Tên sản phẩm <br>

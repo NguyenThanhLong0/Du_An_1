@@ -145,27 +145,22 @@ if (isset($_GET['act'])) {
             // Kiểm tra xem người dùng có click vào nút add hay không
             if (isset($_POST['themmoi']) && $_POST['themmoi']) {
                 $check = true;
-                $ma_danh_muc = $_POST['ma_danh_muc'];
                 $ma_danh_muc_con = $_POST['ma_danh_muc_con'];
                 $ten_sanpham = $_POST['ten_sanpham'];
                 if (empty($ten_sanpham)) {
                     $error['ten_sanpham'] = "không được để trống!";
                     $check = false;
                 }
-
                 $gia_sanpham = $_POST['gia_sanpham'];
                 if (empty($gia_sanpham)) {
                     $error['gia_sanpham'] = "không được để trống!";
                     $check = false;
                 }
-
-
                 $mota = $_POST['mota'];
                 if (empty($mota)) {
                     $error['mota'] = "không được để trống!";
                     $check = false;
                 }
-
                 $hinh = $_FILES['hinh']['name'];
                 $target_dir = "../upload/";
                 $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
@@ -179,10 +174,11 @@ if (isset($_GET['act'])) {
                     $check = false;
                 }
                 if ($check) {
-                    insert_sanpham($ten_sanpham, $hinh,$gia_sanpham, $mota, $ma_danh_muc, $ma_danh_muc_con);
+                    insert_sanpham($ten_sanpham, $hinh,$gia_sanpham, $mota, $ma_danh_muc_con);
                     $thongbao = "Thêm thành công";
                 }
             }
+
             $listdanhmuc_con = loadall_danhmuc_con("", 0);
             $listdanhmuc = loadall_danhmuc();
             include "sanpham/add.php";
@@ -191,14 +187,13 @@ if (isset($_GET['act'])) {
         case 'listsp':
             if (isset($_POST['listok']) && ($_POST['listok'])) {
                 $kyw = $_POST['kyw'];
-                $ma_danh_muc = $_POST['ma_danh_muc'];
+                $ma_danh_muc_con = $_POST['ma_danh_muc_con'];
             } else {
                 $kyw = '';
-                $ma_danh_muc = 0;
+                $ma_danh_muc_con = 0;
             }
             $listdanhmuc_con = loadall_danhmuc_con("", 0);
-            $listdanhmuc = loadall_danhmuc();
-            $listsanpham = loadall_sanpham($kyw, $ma_danh_muc);
+            $listsanpham = loadall_sanpham($kyw, $ma_danh_muc_con);
 
             include "sanpham/list.php";
             break;
@@ -227,7 +222,6 @@ if (isset($_GET['act'])) {
         case 'updatesp':
             if (isset($_POST['update']) && ($_POST['update'])) {
                 $ma_sanpham = $_POST['ma_sanpham'];    //mã sản phẩm
-                $ma_danh_muc = $_POST['ma_danh_muc'];  // mã danh mục liên kết danh mục cha
                 $ma_danh_muc_con = $_POST['ma_danh_muc_con'];
                 $ten_sanpham = $_POST['ten_sanpham'];
                 $gia_sanpham = $_POST['gia_sanpham'];
@@ -240,7 +234,7 @@ if (isset($_GET['act'])) {
                 } else {
                     // echo "Sorry, there was an error uploading your file.";
                 }
-                update_sanpham($ma_sanpham, $ma_danh_muc, $ten_sanpham,$gia_sanpham, $mota, $hinh,$ma_danh_muc_con);
+                update_sanpham($ma_sanpham, $ten_sanpham,$gia_sanpham, $mota, $hinh,$ma_danh_muc_con);
                 $thongbao = "Cập nhật thành công";
             }
             

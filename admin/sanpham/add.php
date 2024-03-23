@@ -7,21 +7,22 @@
         <div class="fromaddm">
             <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    Danh mục cha <br>
+                    <!-- Danh mục cha <br>
                     <select class="select" name="ma_danh_muc">
                         <?php
-                        foreach ($listdanhmuc as $danhmuc) {
-                            extract($danhmuc);
-                            echo '<option value="' . $ma_danhmuc . '">' . $ten_danhmuc . '</option>';
-                        }
+                        // foreach ($listdanhmuc as $danhmuc) {
+                        //     extract($danhmuc);
+                        //     echo '<option value="' . $ma_danhmuc . '">' . $ten_danhmuc . '</option>';
+                        // }
                         ?>
-                    </select><br>
+                    </select><br> -->
                     Danh mục con <br>
                     <select class="select" name="ma_danh_muc_con">
                         <?php
                         foreach ($listdanhmuc_con as $danhmuccon) {
                             extract($danhmuccon);
                             echo '<option value="' . $ma_danhmuc_con . '">' . $ten_danhmuc_con . '</option>';
+                            
                         }
                         ?>
                     </select>

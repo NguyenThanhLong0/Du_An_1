@@ -1,7 +1,7 @@
 <?php
-function insert_sanpham($ten_sanpham, $hinh, $gia_sanpham, $mota, $ma_danh_muc,$ma_danh_muc_con)
+function insert_sanpham($ten_sanpham, $hinh, $gia_sanpham, $mota,$ma_danh_muc_con)
 {
-    $sql = "INSERT INTO sanpham (ten_sanpham,hinh,gia_sanpham,mota,ma_danh_muc,ma_danh_muc_con) VALUES ('$ten_sanpham','$hinh','$gia_sanpham','$mota','$ma_danh_muc','$ma_danh_muc_con')";
+    $sql = "INSERT INTO sanpham (ten_sanpham,hinh,gia_sanpham,mota,ma_danh_muc_con) VALUES ('$ten_sanpham','$hinh','$gia_sanpham','$mota','$ma_danh_muc_con')";
     pdo_execute($sql);
 }
 
@@ -12,14 +12,14 @@ function delete_sanpham($ma_sanpham)
 }
 
 // load lại list danh sách
-function loadall_sanpham($kyw = "", $ma_danh_muc = 0)
+function loadall_sanpham($kyw = "", $ma_danh_muc_con = 0)
 {
     $sql = "SELECT * FROM sanpham WHERE 1";
     if ($kyw != "") {
         $sql .= " and ten_sanpham like '%" . $kyw . "%'";
     }
-    if ($ma_danh_muc > 0) {
-        $sql .= " and ma_danh_muc ='" . $ma_danh_muc . "'";
+    if ($ma_danh_muc_con > 0) {
+        $sql .= " and ma_danh_muc_con ='" . $ma_danh_muc_con . "'";
     }
     $sql .= " order by ma_sanpham desc";
     $listsanpham = pdo_query($sql);
@@ -57,12 +57,12 @@ function load_sanpham_cungloai($ma_sanpham, $ma_danh_muc)
     return $listsanpham;
 }
 
-function update_sanpham($ma_sanpham, $ma_danh_muc, $ten_sanpham,$gia_sanpham, $mota, $hinh,$ma_danh_muc_con)
+function update_sanpham($ma_sanpham, $ten_sanpham,$gia_sanpham, $mota, $hinh,$ma_danh_muc_con)
 {
     if ($hinh != "") {
-        $sql = "UPDATE sanpham SET ma_danh_muc='" . $ma_danh_muc . "', ma_danh_muc_con='" . $ma_danh_muc_con . "', ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "', hinh='" . $hinh . "' WHERE ma_sanpham=" . $ma_sanpham;
+        $sql = "UPDATE sanpham SET ma_danh_muc_con='" . $ma_danh_muc_con . "', ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "', hinh='" . $hinh . "' WHERE ma_sanpham=" . $ma_sanpham;
     } else {
-        $sql = "UPDATE sanpham SET ma_danh_muc='" . $ma_danh_muc . "', ma_danh_muc_con='" . $ma_danh_muc_con . "',ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "' WHERE ma_sanpham=" . $ma_sanpham;
+        $sql = "UPDATE sanpham SET ma_danh_muc_con='" . $ma_danh_muc_con . "',ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "' WHERE ma_sanpham=" . $ma_sanpham;
     }
     pdo_execute($sql);
 }

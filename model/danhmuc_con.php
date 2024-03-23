@@ -28,6 +28,7 @@ function loadone_danhmuc_con($ma_danhmuc_con)
     $dm_con = pdo_query_one($sql);
     return $dm_con;
 }
+
 function update_danhmuc_con($ma_danhmuc_con, $ten_danhmuc_con, $ma_danhmuc_cha)
 {
     $sql = "UPDATE danhmuccon SET ma_danhmuc_cha = '" . $ma_danhmuc_cha . "', ten_danhmuc_con='" . $ten_danhmuc_con . "'  WHERE ma_danhmuc_con=" . $ma_danhmuc_con;

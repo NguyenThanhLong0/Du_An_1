@@ -6,16 +6,7 @@
     <div class="form-group">
         <form action="index.php?act=listsp" method="post">
             <input type="text" name="kyw" placeholder="Tìm kiếm" id="">
-            <select name="ma_danh_muc" id="">
-                <option value="0" selected>Tất cả</option>
-                <?php
-                foreach ($listdanhmuc as $danhmuc) {
-                    extract($danhmuc);
-                    echo '<option value="' . $ma_danhmuc . '">' . $ten_danhmuc . '</option>';
-                }
-                ?>
-            </select>
-            <select class="select" name="ma_danh_muc">
+            <select class="select" name="ma_danh_muc_con">
                 <option value="0" selected>Tất cả</option>
                 <?php
                 foreach ($listdanhmuc_con as $danhmuccon) {
