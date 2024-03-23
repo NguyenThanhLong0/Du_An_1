@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    width: 100%;
+    margin: 0 auto;
+}
+header{
+    background-color: #190c0c;
+    padding: 20px;
+    text-align: center;
+}
+.tieudead{
+    color: #ffffff;
+}
+.nav{
+    padding: 10px 0;
+}
+.nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: large;
+}
+.nav ul li a:hover{
+    color: #50ff55;
+    text-decoration: underline;
+    transition: 1s;
+}
+
+.khungaddm {
+    width: 1160px;
+    margin: 15px auto;
+    border: 1px solid rgb(195, 195, 195);
+    padding: 30px 0px;
+    border-radius: 5px;
+    background-color: #eaeaea;
+    box-shadow: 1px 1px 100px rgb(0, 0, 0, 0.5);
+  }
+  .tieude {
+    color: #0a0060;
+    margin: 2px 0 5px 0;
+    text-align: center;
+  
+  }
+  .khungaddm .form-group {
+    margin: 10px;
+  }
+  .khungaddm .form-group input[type="text"] {
+    padding: 5px 10px;
+    width: 245px;
+    border-radius: 5px;
+    border: 1px solid rgb(195, 195, 195);
+  }
+  .khungaddm .form-group input[type="submit"],
+  .khungaddm .form-group input[type="reset"],
+  .khungaddm .form-group input[type="button"],
+  .table input[type="button"],
+  .form-group select,
+  .boxfooter input[type="text"],
+  .boxfooter input[type="submit"] {
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+  }
+  .khungaddm .form-group input[type="submit"]:hover,
+  .khungaddm .form-group input[type="reset"]:hover,
+  .khungaddm .form-group input[type="button"]:hover,
+  .table input[type="button"]:hover,
+  .boxfooter input[type="submit"]:hover {
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: rgb(170, 170, 170);
+    border: 1px solid #ccc;
+    color: #ffffff;
+  }
+  /* danh sách danh mục */
+  .khungtables {
+    padding: 0px 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table th {
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: 1px solid #a8a8a8;
+  }
+  table td {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  /* css h3 container */
+  
+.divkhung2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*  */
+.divkhungaddsp{
+    margin-left: 300px; 
+}
+
+.divkhungaddsp .form-group input[type="text"] {
+  padding: 5px 10px;
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid rgb(195, 195, 195);
+}
+.divkhungaddsp .form-group input[type="submit"],
+.divkhungaddsp .form-group input[type="reset"],
+.divkhungaddsp .form-group input[type="button"]
+.divkhungaddsp .form-group input[type="file"]{
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.divkhungaddsp .form-group input[type="submit"]:hover,
+.divkhungaddsp .form-group input[type="reset"]:hover,
+.khungaddm .form-group input[type="button"]:hover
+.khungaddm .form-group input[type="file"]:hover{
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: rgb(170, 170, 170);
+  border: 1px solid #ccc;
+  color: #ffffff;
+}
