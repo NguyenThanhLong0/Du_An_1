@@ -1,7 +1,7 @@
 <?php
-function insert_sanpham($ten_sanpham, $hinh, $gia_sanpham, $mota, $ma_danh_muc)
+function insert_sanpham($ten_sanpham, $hinh, $gia_sanpham, $mota, $ma_danh_muc,$ma_danh_muc_con)
 {
-    $sql = "INSERT INTO sanpham (ten_sanpham,hinh,gia_sanpham,mota,ma_danh_muc) VALUES ('$ten_sanpham','$hinh','$gia_sanpham','$mota','$ma_danh_muc')";
+    $sql = "INSERT INTO sanpham (ten_sanpham,hinh,gia_sanpham,mota,ma_danh_muc,ma_danh_muc_con) VALUES ('$ten_sanpham','$hinh','$gia_sanpham','$mota','$ma_danh_muc','$ma_danh_muc_con')";
     pdo_execute($sql);
 }
 
@@ -57,12 +57,12 @@ function load_sanpham_cungloai($ma_sanpham, $ma_danh_muc)
     return $listsanpham;
 }
 
-function update_sanpham($ma_sanpham, $ma_danh_muc, $ten_sanpham,$gia_sanpham, $mota, $hinh)
+function update_sanpham($ma_sanpham, $ma_danh_muc, $ten_sanpham,$gia_sanpham, $mota, $hinh,$ma_danh_muc_con)
 {
     if ($hinh != "") {
-        $sql = "UPDATE sanpham SET ma_danh_muc='" . $ma_danh_muc . "', ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "', hinh='" . $hinh . "' WHERE ma_sanpham=" . $ma_sanpham;
+        $sql = "UPDATE sanpham SET ma_danh_muc='" . $ma_danh_muc . "', ma_danh_muc_con='" . $ma_danh_muc_con . "', ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "', hinh='" . $hinh . "' WHERE ma_sanpham=" . $ma_sanpham;
     } else {
-        $sql = "UPDATE sanpham SET ma_danh_muc='" . $ma_danh_muc . "', ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "' WHERE ma_sanpham=" . $ma_sanpham;
+        $sql = "UPDATE sanpham SET ma_danh_muc='" . $ma_danh_muc . "', ma_danh_muc_con='" . $ma_danh_muc_con . "',ten_sanpham='" . $ten_sanpham . "',gia_sanpham='" . $gia_sanpham . "', mota='" . $mota . "' WHERE ma_sanpham=" . $ma_sanpham;
     }
     pdo_execute($sql);
 }

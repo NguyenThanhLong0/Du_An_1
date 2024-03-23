@@ -4,28 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../asset/style.css">
   <title>TRANG QUẢN TRỊ ADMIN</title>
   <link rel="stylesheet" href="../admin/asset/style.css">
-  
+
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1 class="tieudead">TRANG QUẢN TRỊ ADMIN</h1>
-      <div class="nav">
+      <h1 style="text-align: center;">TRANG QUẢN TRỊ ADMIN</h1>
+      <!-- nav2 -->
+      <div class="nav2">
         <ul class="menu">
-         
-          <li><a href="index.php?act=adddm">Quản lý Danh mục</a></li>
+          <li><a href="../index.php">Trở về trang khách hàng</a></li>
+          <li><a href="index.php?act=adddm">Quản lý Danh mục</a>
+            <ul class="sub-menu">
+              <li><a href="index.php?act=adddm">Danh mục Cha</a></li>
+
+              <li><a href="index.php?act=adddm_con">Danh mục Con</a></li>
+            </ul>
+          </li>
           <li>
             <a href="index.php?act=addsp">Quản lý Sản phẩm</a>
-            <!-- <ul class="sub-menu">
-                <li><a href="">Nam</a></li>
-                <li><a href="">Nữ</a></li>
-              </ul> -->
-          </li> <li><a href="../index.php">Trở về trang khách hàng</a></li>
-          
+          </li>
+
         </ul>
         <!-- giỏ hàng đk đn -->
       </div>

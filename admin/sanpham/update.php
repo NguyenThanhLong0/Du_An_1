@@ -14,17 +14,29 @@ if (is_file($hinhpath)) {
 
 <!-- thêm danh mục -->
 <section class="khungaddm">
-    <div class="tieude">
-        <h1>Cập nhật sản phẩm</h1>
-    </div><div class="divkhungaddsp">
+  <div class="tieude">
+    <h1>Cập nhật sản phẩm</h1>
+  </div>
+  <div class="divkhungaddsp">
     <form action="index.php?act=updatesp" method="post" enctype="multipart/form-data">
       <div class="form-group">
+        Danh mục cha
         <select name="ma_danh_muc" id="">
           <option value="0" selected>Tất cả</option>
           <?php
           foreach ($listdanhmuc as $danhmuc) {
-            if ($ma_danh_muc == $danhmuc['ma_danhmuc']) $s="selected"; else $s="";
-              echo '<option value="'.$danhmuc['ma_danhmuc'].'" '.$s.'>' . $danhmuc['ten_danhmuc'] . '</option>';
+            if ($ma_danh_muc == $danhmuc['ma_danhmuc']) $s = "selected";
+            else $s = "";
+            echo '<option value="' . $danhmuc['ma_danhmuc'] . '" ' . $s . '>' . $danhmuc['ten_danhmuc'] . '</option>';
+          }
+          ?>
+        </select><br>
+        Danh mục con
+        <select class="select" name="ma_danh_muc_con">
+          <?php
+          foreach ($listdanhmuc_con as $danhmuccon) {
+            extract($danhmuccon);
+            echo '<option value="' . $ma_danhmuc_con . '">' . $ten_danhmuc_con . '</option>';
           }
           ?>
         </select>
@@ -60,6 +72,6 @@ if (is_file($hinhpath)) {
       if (isset($thongbao) && ($thongbao != ""))
         echo $thongbao; ?>
     </form>
-        </div>
+  </div>
 </section>
 <!-- end thêm danh mục -->

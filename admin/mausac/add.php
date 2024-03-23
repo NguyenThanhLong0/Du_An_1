@@ -1,16 +1,16 @@
 <!-- thêm danh mục -->
 <section class="khungaddm">
   <div class="tieude">
-    <h1>Thêm mới danh mục sản phẩm</h1>
+    <h1>Thêm mới Màu sắc</h1>
   </div><div class="divkhung2">
   <div class="fromaddm">
     <form action="index.php?act=adddm" method="post">
       <div class="form-group">
-        Mã danh mục: <br>
-        <input type="text" name="ma_danhmuc" id="" disabled placeholder="Mã tự động tăng">
+        Mã màu sắc: <br>
+        <input type="text" name="m" id="" disabled placeholder="Mã tự động tăng">
       </div>
       <div class="form-group">
-        Tên danh mục: <br>
+        Tên màu sắc: <br>
         <input type="text" name="ten_danhmuc" id="" placeholder="Nhập tên danh mục">
         <span style="color: red"><?= isset($error['ten_danhmuc']) ? $error['ten_danhmuc'] : ''  ?></span>
       </div>
