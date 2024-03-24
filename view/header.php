@@ -35,20 +35,36 @@
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NAM</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="category.html">Vest Nam</a></li>
+                                    <!-- <li class="nav-item"><a class="nav-link" href="category.html">Vest Nam</a></li>
                                     <li class="nav-item"><a class="nav-link" href="single-product.html">Áo POLO</a></li>
                                     <li class="nav-item"><a class="nav-link" href="checkout.html">Quần</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Sơ mi Nam</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Sơ mi Nam</a></li> -->
+                                    <?php
+                                    $listdanhmuc = loadall_danhmuc_nam();
+                                    foreach ($listdanhmuc as $dm_nam) {
+                                        extract($dm_nam);
+                                        $linkdmnam = "index.php?act=sanpham&ma_danh_muc_nam=" . $ma_danhmuc_nam;
+                                        echo '<li class="nav-item"><a class="nav-link" href="' . $linkdmnam . '">' . $ten_danhmuc_nam . '</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NỮ</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="category.html">Vest Nữ</a></li>
+                                    <!-- <li class="nav-item"><a class="nav-link" href="category.html">Vest Nữ</a></li>
                                     <li class="nav-item"><a class="nav-link" href="single-product.html">Đầm</a></li>
                                     <li class="nav-item"><a class="nav-link" href="checkout.html">Chân váy</a></li>
                                     <li class="nav-item"><a class="nav-link" href="confirmation.html">Sơ mi Nữ</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="cart.html">Áo CROPTOP</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="cart.html">Áo CROPTOP</a></li> -->
+                                    <?php
+                                    $listdanhmuc = loadall_danhmuc_nu();
+                                    foreach ($listdanhmuc as $dm_nu) {
+                                        extract($dm_nu);
+                                        $linkdmnu = "index.php?act=sanpham&ma_danh_muc_nu=" . $ma_danhmuc_nu;
+                                        echo '<li class="nav-item"><a class="nav-link" href="' . $linkdmnu . '">' . $ten_danhmuc_nu . '</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
@@ -61,7 +77,7 @@
                                     <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
                                 </ul>
                             </li>
-                            
+
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
                                 <ul class="dropdown-menu">

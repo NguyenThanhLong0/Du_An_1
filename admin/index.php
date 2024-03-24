@@ -1,142 +1,128 @@
 <?php
 include "header.php";
 include "../model/pdo.php";
-include "../model/danhmuc.php";
-include "../model/danhmuc_con.php";
+include "../model/danhmucnam.php";
+include "../model/danhmucnu.php";
 include "../model/sanpham.php";
 // controller
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
-        // DANH MỤC CHA (ADMIN)
-        case 'adddm':
+        // DANH MỤC Nữ (ADMIN)
+        case 'adddm_nu':
             $error = [];
             // Kiểm tra xem người dùng có click vào nút add hay không
             if (isset($_POST['themmoi']) && $_POST['themmoi']) {
                 $check = true;
 
-                $ten_danhmuc = $_POST['ten_danhmuc'];
-                if (empty($ten_danhmuc)) {
-                    $error['ten_danhmuc'] = "không được để trống!";
+                $ten_danhmuc_nu = $_POST['ten_danhmuc_nu'];
+                if (empty($ten_danhmuc_nu)) {
+                    $error['ten_danhmuc_nu'] = "không được để trống!";
                     $check = false;
                 }
 
                 if ($check) {
-                    insert_danhmuc($ten_danhmuc);
+                    insert_danhmuc_nu($ten_danhmuc_nu);
                     $thongbao = "Thêm thành công";
                 }
             }
             
-            include "danhmuc/danhmuccha/add.php";
+            include "danhmuc/danhmucnu/add.php";
             break;
 
-        case 'xoadm':
-            if (isset($_GET['ma_danhmuc']) && ($_GET['ma_danhmuc'] > 0)) {
-                delete_danhmuc($_GET['ma_danhmuc']);
+        case 'xoadm_nu':
+            if (isset($_GET['ma_danhmuc_nu']) && ($_GET['ma_danhmuc_nu'] > 0)) {
+                delete_danhmuc_nu($_GET['ma_danhmuc_nu']);
             }
-            $listdanhmuc = loadall_danhmuc();
-            include "danhmuc/danhmuccha/list.php";
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            include "danhmuc/danhmucnu/list.php";
             break;
 
-        case 'listdm':
-            $listdanhmuc = loadall_danhmuc();
-            include "danhmuc/danhmuccha/list.php";
+        case 'listdm_nu':
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            include "danhmuc/danhmucnu/list.php";
             break;
             
-        case 'suadm':
-            if (isset($_GET['ma_danhmuc']) && ($_GET['ma_danhmuc'] > 0)) {
-                $dm = loadone_danhmuc($_GET['ma_danhmuc']);
+        case 'suadm_nu':
+            if (isset($_GET['ma_danhmuc_nu']) && ($_GET['ma_danhmuc_nu'] > 0)) {
+                $dm_nu = loadone_danhmuc_nu($_GET['ma_danhmuc_nu']);
             }
-            include "danhmuc/danhmuccha/update.php";
+            include "danhmuc/danhmucnu/update.php";
             break;
-        case 'updatedm':
+        case 'updatedm_nu':
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
 
-                $ma_danhmuc = $_POST['ma_danhmuc'];
-                $ten_danhmuc = $_POST['ten_danhmuc'];
+                $ma_danhmuc_nu = $_POST['ma_danhmuc_nu'];
+                $ten_danhmuc_nu = $_POST['ten_danhmuc_nu'];
                 
-                    $error['ten_danhmuc'] = "không được để trống!";
+                    $error['ten_danhmuc_nu'] = "không được để trống!";
                     $check = false;
             
-                update_danhmuc($ma_danhmuc, $ten_danhmuc);
+                update_danhmuc_nu($ma_danhmuc_nu, $ten_danhmuc_nu);
                 $thongbao = "Cập nhật thành công";
             }
-            $listdanhmuc = loadall_danhmuc();
-            include "danhmuc/danhmuccha/list.php";
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            include "danhmuc/danhmucnu/list.php";
             break;
-            // END DANH MỤC CHA (ADMIN)
+            // END DANH MỤC nữ (ADMIN)
 
-        // DANH MỤC CONN(ADMIN)
-        case 'adddm_con':
+        // DANH MỤC nam (ADMIN)
+        case 'adddm_nam':
             $error = [];
             // Kiểm tra xem người dùng có click vào nút add hay không
             if (isset($_POST['themmoi']) && $_POST['themmoi']) {
                 $check = true;
-                $ma_danhmuc_cha = $_POST['ma_danhmuc_cha'];
 
-                $ten_danhmuc_con = $_POST['ten_danhmuc_con'];
-                if (empty($ten_danhmuc_con)) {
-                    $error['ten_danhmuc_con'] = "không được để trống!";
+                $ten_danhmuc_nam = $_POST['ten_danhmuc_nam'];
+                if (empty($ten_danhmuc_nam)) {
+                    $error['ten_danhmuc_nam'] = "không được để trống!";
                     $check = false;
                 }
+
                 if ($check) {
-                    insert_danhmuc_con($ten_danhmuc_con, $ma_danhmuc_cha);
+                    insert_danhmuc_nam($ten_danhmuc_nam);
                     $thongbao = "Thêm thành công";
                 }
             }
-            $listdanhmuc = loadall_danhmuc();
-            include "danhmuc/danhmuccon/add.php";
-            break;
-
-        case 'xoadm_con':
-            if (isset($_GET['ma_danhmuc_con']) && ($_GET['ma_danhmuc_con'] > 0)) {
-                delete_danhmuc_con($_GET['ma_danhmuc_con']);
-            }
-            $listdanhmuc = loadall_danhmuc();
-            $listdanhmuc_con = loadall_danhmuc_con("", 0);
-            include "danhmuc/danhmuccon/list.php";
-            break;
-
-        case 'listdm_con':
-            if (isset($_POST['listok']) && ($_POST['listok'])) {
-                $kyw = $_POST['kyw'];
-                $ma_danhmuc_cha = $_POST['ma_danhmuc_cha'];
-            } else {
-                $kyw = '';
-                $ma_danhmuc_cha = 0;
-            }
-            $listdanhmuc = loadall_danhmuc();
-            $listdanhmuc_con = loadall_danhmuc_con($kyw, $ma_danhmuc_cha);
-            include "danhmuc/danhmuccon/list.php";
-            break;
-
-
             
-        case 'suadm_con':
-            if (isset($_GET['ma_danhmuc_con']) && ($_GET['ma_danhmuc_con'] > 0)) {
-                $dm_con = loadone_danhmuc_con($_GET['ma_danhmuc_con']);
+            include "danhmuc/danhmucnam/add.php";
+            break;
+
+        case 'xoadm_nam':
+            if (isset($_GET['ma_danhmuc_nam']) && ($_GET['ma_danhmuc_nam'] > 0)) {
+                delete_danhmuc_nam($_GET['ma_danhmuc_nam']);
             }
-            $listdanhmuc = loadall_danhmuc();
-            include "danhmuc/danhmuccon/update.php";
+            $listdanhmuc_nam = loadall_danhmuc_nam();
+            include "danhmuc/danhmucnam/list.php";
+            break;
+
+        case 'listdm_nam':
+            $listdanhmuc_nam = loadall_danhmuc_nam();
+            include "danhmuc/danhmucnam/list.php";
             break;
             
-        case 'updatedm_con':
+        case 'suadm_nam':
+            if (isset($_GET['ma_danhmuc_nam']) && ($_GET['ma_danhmuc_nam'] > 0)) {
+                $dm_nam = loadone_danhmuc_nam($_GET['ma_danhmuc_nam']);
+            }
+            include "danhmuc/danhmucnam/update.php";
+            break;
+        case 'updatedm_nam':
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
-                $ma_danhmuc_cha = $_POST['ma_danhmuc_cha'];
-                $ma_danhmuc_con = $_POST['ma_danhmuc_con'];
-                $ten_danhmuc_con = $_POST['ten_danhmuc_con'];
+
+                $ma_danhmuc_nam = $_POST['ma_danhmuc_nam'];
+                $ten_danhmuc_nam = $_POST['ten_danhmuc_nam'];
                 
-                $error['ten_danhmuc_con'] = "không được để trống!";
-                $check = false;
             
-                update_danhmuc_con($ma_danhmuc_con, $ten_danhmuc_con, $ma_danhmuc_cha);
+                update_danhmuc_nam($ma_danhmuc_nam, $ten_danhmuc_nam);
                 $thongbao = "Cập nhật thành công";
             }
-            $listdanhmuc = loadall_danhmuc();
-            $listdanhmuc_con = loadall_danhmuc_con("", 0);
-            include "danhmuc/danhmuccon/list.php";
+            $listdanhmuc_nam = loadall_danhmuc_nam();
+            include "danhmuc/danhmucnam/list.php";
             break;
-// End danh mục conn(ADMIN)
+            // END DANH MỤC _nam (ADMIN)
+
+        
 
 
             // controler sản phẩm
@@ -145,7 +131,9 @@ if (isset($_GET['act'])) {
             // Kiểm tra xem người dùng có click vào nút add hay không
             if (isset($_POST['themmoi']) && $_POST['themmoi']) {
                 $check = true;
-                $ma_danh_muc_con = $_POST['ma_danh_muc_con'];
+                $ma_danh_muc_nam = $_POST['ma_danh_muc_nam'];
+                $ma_danh_muc_nu = $_POST['ma_danh_muc_nu'];
+
                 $ten_sanpham = $_POST['ten_sanpham'];
                 if (empty($ten_sanpham)) {
                     $error['ten_sanpham'] = "không được để trống!";
@@ -174,27 +162,30 @@ if (isset($_GET['act'])) {
                     $check = false;
                 }
                 if ($check) {
-                    insert_sanpham($ten_sanpham, $hinh,$gia_sanpham, $mota, $ma_danh_muc_con);
+                    insert_sanpham($ten_sanpham, $hinh, $gia_sanpham, $mota, $ma_danh_muc_nam, $ma_danh_muc_nu);
                     $thongbao = "Thêm thành công";
                 }
             }
 
-            $listdanhmuc_con = loadall_danhmuc_con("", 0);
-            $listdanhmuc = loadall_danhmuc();
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            $listdanhmuc_nam = loadall_danhmuc_nam();
             include "sanpham/add.php";
             break;
 
         case 'listsp':
             if (isset($_POST['listok']) && ($_POST['listok'])) {
                 $kyw = $_POST['kyw'];
-                $ma_danh_muc_con = $_POST['ma_danh_muc_con'];
+                $ma_danh_muc_nam = $_POST['ma_danh_muc_nam'];
+                $ma_danh_muc_nu = $_POST['ma_danh_muc_nu'];
             } else {
-                $kyw = '';
-                $ma_danh_muc_con = 0;
+                $kyw = ' ';
+                $ma_danh_muc_nam = 0;
+                $ma_danh_muc_nu = 0;
             }
-            $listdanhmuc_con = loadall_danhmuc_con("", 0);
-            $listsanpham = loadall_sanpham($kyw, $ma_danh_muc_con);
-
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            $listdanhmuc_nam = loadall_danhmuc_nam();
+            $listsanpham = loadall_sanpham($kyw, $ma_danh_muc_nam, $ma_danh_muc_nu);
+            
             include "sanpham/list.php";
             break;
 
@@ -203,9 +194,9 @@ if (isset($_GET['act'])) {
                 delete_sanpham($_GET['ma_sanpham']);
             }
             
-            $listdanhmuc = loadall_danhmuc();
-            $listsanpham = loadall_sanpham("", 0);
-
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            $listdanhmuc_nam = loadall_danhmuc_nam();
+            $listsanpham = loadall_sanpham("",0,0);
             include "sanpham/list.php";
             break;
 
@@ -214,15 +205,16 @@ if (isset($_GET['act'])) {
             if (isset($_GET['ma_sanpham']) && ($_GET['ma_sanpham'] > 0)) {
                 $sanpham = loadone_sanpham($_GET['ma_sanpham']);
             }
-            $listdanhmuc = loadall_danhmuc();
-            $listdanhmuc_con = loadall_danhmuc_con("", 0);
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            $listdanhmuc_nam = loadall_danhmuc_nam();
             include "sanpham/update.php";
             break;
 
         case 'updatesp':
             if (isset($_POST['update']) && ($_POST['update'])) {
                 $ma_sanpham = $_POST['ma_sanpham'];    //mã sản phẩm
-                $ma_danh_muc_con = $_POST['ma_danh_muc_con'];
+                $ma_danh_muc_nam = $_POST['ma_danh_muc_nam'];
+                $ma_danh_muc_nu = $_POST['ma_danh_muc_nu'];
                 $ten_sanpham = $_POST['ten_sanpham'];
                 $gia_sanpham = $_POST['gia_sanpham'];
                 $mota = $_POST['mota'];
@@ -234,13 +226,14 @@ if (isset($_GET['act'])) {
                 } else {
                     // echo "Sorry, there was an error uploading your file.";
                 }
-                update_sanpham($ma_sanpham, $ten_sanpham,$gia_sanpham, $mota, $hinh,$ma_danh_muc_con);
+
+                update_sanpham($ma_sanpham, $ten_sanpham, $gia_sanpham, $mota, $hinh, $ma_danh_muc_nam , $ma_danh_muc_nu );
                 $thongbao = "Cập nhật thành công";
             }
             
-            $listdanhmuc = loadall_danhmuc();
-            $listsanpham = loadall_sanpham("", 0);
-            $listdanhmuc_con = loadall_danhmuc_con("", 0);
+            $listsanpham = loadall_sanpham("", 0,0);
+            $listdanhmuc_nu = loadall_danhmuc_nu();
+            $listdanhmuc_nam = loadall_danhmuc_nam();
             include "sanpham/list.php";
             break;
 

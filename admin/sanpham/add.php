@@ -7,25 +7,27 @@
         <div class="fromaddm">
             <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <!-- Danh mục cha <br>
-                    <select class="select" name="ma_danh_muc">
+                    Danh mục Nam <br>
+                    <select class="select" name="ma_danh_muc_nam">
+                    <option value="0" selected>chưa được chọn</option>
                         <?php
-                        // foreach ($listdanhmuc as $danhmuc) {
-                        //     extract($danhmuc);
-                        //     echo '<option value="' . $ma_danhmuc . '">' . $ten_danhmuc . '</option>';
-                        // }
-                        ?>
-                    </select><br> -->
-                    Danh mục con <br>
-                    <select class="select" name="ma_danh_muc_con">
-                        <?php
-                        foreach ($listdanhmuc_con as $danhmuccon) {
-                            extract($danhmuccon);
-                            echo '<option value="' . $ma_danhmuc_con . '">' . $ten_danhmuc_con . '</option>';
-                            
+                        foreach ($listdanhmuc_nam as $danhmuc_nam) {
+                            extract($danhmuc_nam);
+                            echo '<option value="' . $ma_danhmuc_nam . '">' . $ten_danhmuc_nam . '</option>';
                         }
                         ?>
-                    </select>
+                    </select><br>
+                    Danh mục Nữ <br>
+                    <select class="select" name="ma_danh_muc_nu">
+                    <option value="0" selected>chưa được chọn</option>
+                        <?php
+                        foreach ($listdanhmuc_nu as $danhmuc_nu) {
+                            extract($danhmuc_nu);
+                            echo '<option value="' . $ma_danhmuc_nu . '">' . $ten_danhmuc_nu . '</option>';
+                        }
+                        ?>
+                    </select><br>
+                    
                 </div>
                 <div class="form-group">
                     Mã sản phẩm: <br>

@@ -19,9 +19,9 @@
           <li><a href="../index.php">Trở về trang khách hàng</a></li>
           <li><a href="index.php?act=adddm">Quản lý Danh mục</a>
             <ul class="sub-menu">
-              <li><a href="index.php?act=adddm">Danh mục Cha</a></li>
+              <li><a href="index.php?act=adddm_nu">Danh mục Nữ</a></li>
 
-              <li><a href="index.php?act=adddm_con">Danh mục Con</a></li>
+              <li><a href="index.php?act=adddm_nam">Danh mục Nam</a></li>
             </ul>
           </li>
           <li>

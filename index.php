@@ -1,19 +1,23 @@
 <?php
 session_start();
 include "model/pdo.php";
-include "model/danhmuc.php";
+include "model/danhmucnam.php";
+include "model/danhmucnu.php";
 include "model/sanpham.php";
 include "model/size.php";
 include "model/mausac.php";
 include "view/header.php";
+
 // include "view/home.php";
 include "global.php";
 
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = []; //moi
 
 $spnew = loadall_sanpham_home();
-$dsdm = loadall_danhmuc();
-
+// $dsdm = loadall_danhmuc();
+$dm_nam = loadall_danhmuc_nam();
+$dm_nu = loadall_danhmuc_nu();
+$dstop10 = loadall_sanpham_top10();
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
   $act = $_GET['act'];
   switch ($act) {
@@ -24,14 +28,23 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       } else {
         $kyw = "";
       }
-      if (isset($_GET['ma_danh_muc']) && ($_GET['ma_danh_muc'] > 0)) {
-        $ma_danh_muc = $_GET['ma_danh_muc'];
+
+      if (isset($_GET['ma_danh_muc_nam']) && ($_GET['ma_danh_muc_nam'] > 0 )) {
+        $ma_danh_muc_nam = $_GET['ma_danh_muc_nam'];
       } else {
-        $ma_danh_muc = 0;
+        $ma_danh_muc_nam = 0;
       }
 
-      $dssp = loadall_sanpham($kyw, $ma_danh_muc);
-      $tendm = load_ten_dm($ma_danh_muc);
+      if ( isset($_GET['ma_danh_muc_nu']) && ($_GET['ma_danh_muc_nu'] > 0) ) {
+        $ma_danh_muc_nu = $_GET['ma_danh_muc_nu'];
+      } else {
+        $ma_danh_muc_nu = 0;
+      }
+
+      $dssp =  loadall_sanpham($kyw, $ma_danh_muc_nam, $ma_danh_muc_nu);
+      // $tendm = load_ten_dm($ma_danh_muc);
+      $tendm_nu = load_ten_dm_nu( $ma_danh_muc_nu);
+        $tendm_nam = load_ten_dm_nam( $ma_danh_muc_nam);
       //chú ý chỗ này
       include "view/sanpham.php";
       break;
@@ -39,7 +52,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     case 'listdanhmuc':
       // cần có cho thay đổi
 
-      $listdanhmuc = loadall_danhmuc();
+      // $listdanhmuc = loadall_danhmuc();
+      // $listdanhmuc_con = loadall_danhmuc_con("", 0);
       include "view/sanphamct.php";
       break;
 
@@ -48,10 +62,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         $ma_sanpham = $_GET['ma_sanpham'];
         $onesp = loadone_sanpham($ma_sanpham);
         extract($onesp);
-        $sp_cung_loai = load_sanpham_cungloai($ma_sanpham, $ma_danh_muc); //luu ý
+
+        // $sp_cung_loai = load_sanpham_cungloai($ma_sanpham, $ma_danh_muc); //luu ý
+         $sp_cung_loai = load_sanpham_cungloai($ma_sanpham, $ma_danh_muc_nam, $ma_danh_muc_nu);
 
         $listsize = loadall_size();
         $listmausac = loadall_mausac();
+        $tendm_nu = load_ten_dm_nu( $ma_danh_muc_nu);
+        $tendm_nam = load_ten_dm_nam( $ma_danh_muc_nam);
         include "view/sanphamct.php";
       } else {
         include "view/home.php";

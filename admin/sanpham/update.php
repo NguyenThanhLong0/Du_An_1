@@ -20,14 +20,24 @@ if (is_file($hinhpath)) {
   <div class="divkhungaddsp">
     <form action="index.php?act=updatesp" method="post" enctype="multipart/form-data">
       <div class="form-group">
-        Danh mục con <br>
-        <select name="ma_danh_muc_con" id="">
-          <option value="0" selected>Tất cả</option>
+        
+        <select name="ma_danh_muc_nam" id="">
+          <option value="0" selected>Chọn danh mục Nam<i class="fa-solid fa-caret-down"></i></option>
           <?php
-          foreach ($listdanhmuc_con as $danhmuccon) {
-            if ($ma_danh_muc_con == $danhmuccon['ma_danhmuc_con']) $s = "selected";
+          foreach ($listdanhmuc_nam as $danhmuc_nam) {
+            if ($ma_danh_muc_nam == $danhmuc_nam['ma_danhmuc_nam']) $s = "selected";
             else $s = "";
-            echo '<option value="' . $danhmuccon['ma_danhmuc_con'] . '" ' . $s . '>' . $danhmuccon['ten_danhmuc_con'] . '</option>';
+            echo '<option value="' . $danhmuc_nam['ma_danhmuc_nam'] . '" ' . $s . '>' . $danhmuc_nam['ten_danhmuc_nam'] . '</option>';
+          }
+          ?>
+        </select>
+        <select name="ma_danh_muc_nu" id="">
+          <option value="0" selected>Chọn danh mục Nữ<i class="fa-solid fa-caret-down"></i></option>
+          <?php
+          foreach ($listdanhmuc_nu as $danhmuc_nu) {
+            if ($ma_danh_muc_nu == $danhmuc_nu['ma_danhmuc_nu']) $s = "selected";
+            else $s = "";
+            echo '<option value="' . $danhmuc_nu['ma_danhmuc_nu'] . '" ' . $s . '>' . $danhmuc_nu['ten_danhmuc_nu'] . '</option>';
           }
           ?>
         </select>

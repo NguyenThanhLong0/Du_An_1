@@ -27,25 +27,26 @@
         <div class="owl-carousel owl-theme hero-carousel">
             <div class="hero-carousel__slide">
                 <img src="img/home/hero-slide1.png" alt="" class="img-fluid">
-                <a href="#" class="hero-carousel__slideOverlay">
+                <!-- <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
-                </a>
+                </a> -->
             </div>
             <div class="hero-carousel__slide">
                 <img src="img/home/hero-slide2.png" alt="" class="img-fluid">
-                <a href="#" class="hero-carousel__slideOverlay">
+                <!-- <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
-                </a>
+                </a> -->
             </div>
             <div class="hero-carousel__slide">
                 <img src="img/home/hero-slide3.png" alt="" class="img-fluid">
-                <a href="#" class="hero-carousel__slideOverlay">
+                <!-- <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
-                </a>
+                </a> -->
             </div>
+            
         </div>
     </section>
     <!--================ Hero Carousel end =================-->
