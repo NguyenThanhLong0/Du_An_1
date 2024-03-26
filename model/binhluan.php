@@ -18,5 +18,19 @@ function delete_binhluan($id)
     pdo_execute($sql);
 }
 
+function load_ten_binhluan($iduser)
+{
+    if ($iduser > 0) {
+        $sql = "SELECT * FROM nguoidung WHERE ma_nguoidung =" . $iduser;
+        
+        $hoten= pdo_query_one($sql);
+        extract($hoten);
+        return $hoten;
+    } else {
+        return "";
+    }
+}
+
+
 
 ?>

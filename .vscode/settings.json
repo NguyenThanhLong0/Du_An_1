@@ -1,3 +1,4 @@
 {
-    "codeium.enableCodeLens": true
+    "codeium.enableCodeLens": true,
+    "highlight-matching-tag.styles": null
 }

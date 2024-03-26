@@ -123,7 +123,7 @@ function update_sanpham($ma_sanpham, $ten_sanpham, $gia_sanpham, $mota, $hinh, $
 
 function loadall_sanpham_top10()
 {
-    $sql = "SELECT * FROM sanpham WHERE 1 order by luotxem desc limit 0,10";
+    $sql = "SELECT * FROM sanpham WHERE 1 order by luotxem desc limit 0,12";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }

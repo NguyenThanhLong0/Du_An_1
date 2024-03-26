@@ -1,5 +1,5 @@
-<main class="site-main">
 
+<main class="site-main">
     <!--================ Hero banner start =================-->
     <section class="hero-banner">
         <div class="container">
@@ -26,21 +26,28 @@
     <section class="section-margin mt-0">
         <div class="owl-carousel owl-theme hero-carousel">
             <div class="hero-carousel__slide">
-                <img src="img/home/hero-slide1.png" alt="" class="img-fluid">
+                <img src="img/home/anh1.jpg" alt="" class="img-fluid">
                 <!-- <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
                 </a> -->
             </div>
             <div class="hero-carousel__slide">
-                <img src="img/home/hero-slide2.png" alt="" class="img-fluid">
+                <img src="img/home/anh2.jpg" alt="" class="img-fluid">
                 <!-- <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>
                 </a> -->
             </div>
             <div class="hero-carousel__slide">
-                <img src="img/home/hero-slide3.png" alt="" class="img-fluid">
+                <img src="img/home/anh3.jpg" alt="" class="img-fluid">
+                <!-- <a href="#" class="hero-carousel__slideOverlay">
+                    <h3>Wireless Headphone</h3>
+                    <p>Accessories Item</p>
+                </a> -->
+            </div>
+            <div class="hero-carousel__slide">
+                <img src="img/home/anh4.jpg" alt="" class="img-fluid">
                 <!-- <a href="#" class="hero-carousel__slideOverlay">
                     <h3>Wireless Headphone</h3>
                     <p>Accessories Item</p>

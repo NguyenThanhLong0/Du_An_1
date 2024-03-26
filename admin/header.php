@@ -27,6 +27,12 @@
           <li>
             <a href="index.php?act=addsp">Quản lý Sản phẩm</a>
           </li>
+          <li>
+            <a href="index.php?act=add_nguoidung">Quản lý Người Dùng</a>
+          </li>
+          <li>
+            <a href="index.php?act=dsbl">Quản lý Bình luận</a>
+          </li>
 
         </ul>
         <!-- giỏ hàng đk đn -->
