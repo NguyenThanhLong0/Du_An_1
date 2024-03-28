@@ -49,14 +49,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       include "view/sanpham.php";
       break;
 
-    case 'listdanhmuc':
-      // cần có cho thay đổi
-
-      // $listdanhmuc = loadall_danhmuc();
-      // $listdanhmuc_con = loadall_danhmuc_con("", 0);
-      include "view/sanphamct.php";
-      break;
-
     case 'sanphamct':
       if (isset($_GET['ma_sanpham']) && ($_GET['ma_sanpham'] > 0)) {
         $ma_sanpham = $_GET['ma_sanpham'];
@@ -141,6 +133,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       //end nguoi dung
 
 
+      /// SIZE, MAUSAC
     case 'listsize':
       // cần có cho thay đổi
       $listsize = loadall_size();
@@ -153,6 +146,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       include "view/sanphamct.php";
       break;
 
+      case "viewcart":
+        include "view/cart/viewcart.php";
+        break;
+      
     case 'thoat':
       session_unset();
       session_destroy();

@@ -86,7 +86,7 @@
                                     <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="index.php?act=sanpham">SẢN PHẨM</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="index.php?act=sanpham">SẢN PHẨM</a></li> -->
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
 
@@ -94,14 +94,14 @@
                             <li class="nav-item">
                                 <!-- <button type="submit"><i class="ti-search"></i></button> -->
                                 <form action="index.php?act=sanpham" method="post" class="input-group filter-bar-search">
-                                    <div class="input-group-append"><input type="text" placeholder="Search" required name="kyw">
-
-                                        <button type="submit" name="timkiem"><i class="ti-search"></i></button>
+                                    <div class="input-group-append"><input type="text" placeholder="Search" required name="kyw"><button type="submit" name="timkiem"><i class="ti-search"></i></button>
                                     </div>
                                 </form>
                             </li>
-                            <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-                            <!-- <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li> -->
+                            <li class="nav-item"><button type="submit"> <a href="index.php?act=viewcart"><i class="ti-shopping-cart"></i>
+                                        <!-- <span class="nav-shop__circle">3</span>  -->
+                                    </a></button> </li>
+                            <li class="nav-item"><a class="button button-header" href="index.php?act=sanpham">Mua ngay</a></li>
                         </ul>
                     </div>
 
