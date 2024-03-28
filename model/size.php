@@ -4,6 +4,21 @@ function insert_size($ten_size)
     $sql = "insert into size(ten_size) values('$ten_size')";
     pdo_execute($sql); //thg-sql-thg
 }
+
+
+function delete_size($ma_size)
+{
+    $sql = "DELETE FROM size WHERE ma_size=" . $ma_size;
+    pdo_execute($sql);
+}
+
+function update_size($ma_size, $ten_size)
+{
+    $sql = "UPDATE size SET ten_size='" . $ten_size . "' WHERE ma_size=" . $ma_size;
+
+    pdo_execute($sql);
+}
+
 function loadall_size()
 {
     $sql = " SELECT * FROM size order by ma_size desc";

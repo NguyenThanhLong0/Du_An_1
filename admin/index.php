@@ -8,6 +8,8 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
     include "../model/sanpham.php";
     include "../model/nguoidung.php";
     include "../model/binhluan.php";
+    include "../model/mausac.php";
+    include "../model/size.php";
     // controller
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
@@ -240,7 +242,7 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 $listdanhmuc_nam = loadall_danhmuc_nam();
                 include "sanpham/list.php";
                 break;
-
+                //end sản phẩm
 
 
                 // nguoidung
@@ -322,6 +324,7 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 include "nguoidung/list.php";
                 break;
                 // END NGUOIDUNG
+
                 // Binhluan
             case 'dsbl':
                 $listbinhluan = loadall_binhluan(0);
@@ -336,6 +339,115 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 include "binhluan/list.php";
                 break;
                 // END Binhluan
+            
+            // Quản lí màu sắc
+            case 'addms':
+                $error = [];
+                // Kiểm tra xem người dùng có click vào nút add hay không
+                if (isset($_POST['themmoi']) && $_POST['themmoi']) {
+                    $check = true;
+                    $ten_mausac = $_POST['ten_mausac'];
+                    if (empty($ten_mausac)) {
+                        $error['ten_mausac'] = "không được để trống!";
+                        $check = false;
+                    }
+                    if ($check) {
+                        insert_mausac($ten_mausac);
+                        $thongbao = "Thêm thành công";
+                    }
+                }
+
+                include "mausac/add.php";
+                break;
+
+            case 'xoams':
+                if (isset($_GET['ma_mausac']) && ($_GET['ma_mausac'] > 0)) {
+                    delete_mausac($_GET['ma_mausac']);
+                }
+                $listms = loadall_mausac();
+                include "mausac/list.php";
+                break;
+
+            case 'listms':
+                $listms = loadall_mausac();
+                include "mausac/list.php";
+                break;
+
+            case 'suams':
+                if (isset($_GET['ma_mausac']) && ($_GET['ma_mausac'] > 0)) {
+                    $mausac = loadone_mausac($_GET['ma_mausac']);
+                }
+                include "mausac/update.php";
+                break;
+
+            case 'updatems':
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+
+                    $ma_mausac = $_POST['ma_mausac'];
+                    $ten_mausac = $_POST['ten_mausac'];
+
+
+                    update_mausac($ma_mausac, $ten_mausac);
+                    $thongbao = "Cập nhật thành công";
+                }
+                $listms = loadall_mausac();
+                include "mausac/list.php";
+                break;
+                // END Màu sắc
+
+            // Quản lí size
+            case 'addsize':
+                $error = [];
+                // Kiểm tra xem người dùng có click vào nút add hay không
+                if (isset($_POST['themmoi']) && $_POST['themmoi']) {
+                    $check = true;
+                    $ten_size = $_POST['ten_size'];
+                    if (empty($ten_size)) {
+                        $error['ten_size'] = "không được để trống!";
+                        $check = false;
+                    }
+                    if ($check) {
+                        insert_size($ten_size);
+                        $thongbao = "Thêm thành công";
+                    }
+                }
+
+                include "size/add.php";
+                break;
+
+            case 'xoasize':
+                if (isset($_GET['ma_size']) && ($_GET['ma_size'] > 0)) {
+                    delete_size($_GET['ma_size']);
+                }
+                $listsize = loadall_size();
+                include "size/list.php";
+                break;
+
+            case 'listsize':
+                $listsize = loadall_size();
+                include "size/list.php";
+                break;
+
+            case 'suasize':
+                if (isset($_GET['ma_size']) && ($_GET['ma_size'] > 0)) {
+                    $size = loadone_size($_GET['ma_size']);
+                }
+                include "size/update.php";
+                break;
+
+            case 'updatesize':
+                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+
+                    $ma_size = $_POST['ma_size'];
+                    $ten_size = $_POST['ten_size'];
+                    update_size($ma_size, $ten_size);
+                    $thongbao = "Cập nhật thành công";
+                }
+                $listsize = loadall_size();
+                include "size/list.php";
+                break;
+                // END size
+
             default:
                 include "home.php";
                 break;

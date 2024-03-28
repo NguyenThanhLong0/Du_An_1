@@ -12,9 +12,9 @@
                 <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
                     <div class="hero-banner__content">
                         <h4>Mua sắm vui vẻ</h4>
-                        <h1>Tại FAUGET Shopping</h1>
-                        <p>Us which over of signs divide dominion deep fill bring they're meat beho upon own earth without morning over third. Their male dry. They are great appear whose land fly grass.</p>
-                        <a class="button button-hero" href="#">Mua Ngay Nào</a>
+                        <h1>Tại Aroma Shopping</h1>
+                        <p>Aroma là nơi bạn có thể tìm thấy những mẫu quần áo đẹp và phong cách. Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng và phục vụ tận tâm. Hãy đến với shop của chúng tôi để trải nghiệm mua sắm thú vị và tìm được những bộ trang phục phù hợp với phong cách của bạn.</p>
+                        <a class="button button-hero" href="index.php?act=sanpham">Mua Ngay Nào</a>
                     </div>
                 </div>
             </div>

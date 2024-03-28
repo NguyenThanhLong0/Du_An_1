@@ -79,13 +79,14 @@
                             </li>
 
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="index.php?act=dangnhap">ĐĂNG NHẬP</a></li>
                                     <li class="nav-item"><a class="nav-link" href="index.php?act=dangky">ĐĂNG KÝ</a></li>
                                     <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="index.php?act=sanpham">SẢN PHẨM</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
 

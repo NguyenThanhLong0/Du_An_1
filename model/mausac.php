@@ -6,6 +6,14 @@ function insert_mausac($ten_mausac)
     pdo_execute($sql);
 }
 
+
+function delete_mausac($ma_mausac)
+{
+    $sql = "DELETE FROM mausac WHERE ma_mausac=" . $ma_mausac;
+    pdo_execute($sql);
+}
+
+
 // Hàm tải tất cả các màu sắc từ cơ sở dữ liệu
 function loadall_mausac()
 {
@@ -20,7 +28,7 @@ function loadall_mausac()
 // Hàm tải thông tin của một màu sắc dựa trên mã màu
 function loadone_mausac($ma_mausac)
 {
-    $sql = "SELECT * FROM mau_sac WHERE ma_mausac = $ma_mausac";
+    $sql = "SELECT * FROM mausac WHERE ma_mausac = $ma_mausac";
     $mausac = pdo_query_one($sql);
     return $mausac;
 }
@@ -35,4 +43,11 @@ function load_ten_color($ma_mausac)
     } else {
         return "";
     }
+}
+
+function update_mausac($ma_mausac, $ten_mausac)
+{
+    $sql = "UPDATE mausac SET ten_mausac='" . $ten_mausac . "' WHERE ma_mausac=" . $ma_mausac;
+
+    pdo_execute($sql);
 }

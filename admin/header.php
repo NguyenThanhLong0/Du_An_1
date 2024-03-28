@@ -31,6 +31,13 @@
             <a href="index.php?act=add_nguoidung">Quản lý Người Dùng</a>
           </li>
           <li>
+            <a href="index.php?act=addms">Quản lý Màu sắc</a>
+          </li>
+          <li>
+            <a href="index.php?act=addsize">Quản lý Size</a>
+          </li>
+          
+          <li>
             <a href="index.php?act=dsbl">Quản lý Bình luận</a>
           </li>
 
