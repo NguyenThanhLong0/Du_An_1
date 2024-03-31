@@ -35,10 +35,6 @@
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NAM</a>
                                 <ul class="dropdown-menu">
-                                    <!-- <li class="nav-item"><a class="nav-link" href="category.html">Vest Nam</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="single-product.html">Áo POLO</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="checkout.html">Quần</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Sơ mi Nam</a></li> -->
                                     <?php
                                     $listdanhmuc = loadall_danhmuc_nam();
                                     foreach ($listdanhmuc as $dm_nam) {
@@ -67,6 +63,7 @@
                                     ?>
                                 </ul>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="index.php?act=sanpham">SẢN PHẨM</a></li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
                                 <ul class="dropdown-menu">
@@ -79,29 +76,35 @@
                             </li>
 
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TÀI KHOẢN</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="index.php?act=dangnhap">ĐĂNG NHẬP</a></li>
                                     <li class="nav-item"><a class="nav-link" href="index.php?act=dangky">ĐĂNG KÝ</a></li>
                                     <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
                                 </ul>
                             </li>
-                            <!-- <li class="nav-item"><a class="nav-link" href="index.php?act=sanpham">SẢN PHẨM</a></li> -->
+
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
 
                         <ul class="nav-shop">
+
                             <li class="nav-item">
                                 <!-- <button type="submit"><i class="ti-search"></i></button> -->
-                                <form action="index.php?act=sanpham" method="post" class="input-group filter-bar-search">
-                                    <div class="input-group-append"><input type="text" placeholder="Search" required name="kyw"><button type="submit" name="timkiem"><i class="ti-search"></i></button>
+                                <form action="index.php?act=sanpham" method="post" class="input-group ">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" required name="kyw">
+                                        <button type="submit" class="input-group-btn ti-search" name="timkiem" value="Tìm" style="background-color: #c0c0c0; width: 35px; border-top-right-radius: 5px;border-bottom-right-radius: 5px"></button>
                                     </div>
                                 </form>
+                                
+                                
                             </li>
-                            <li class="nav-item"><button type="submit"> <a href="index.php?act=viewcart"><i class="ti-shopping-cart"></i>
+
+                            <li class="nav-item"><button type="submit"> <a href="index.php?act=giohang"><i class="ti-shopping-cart"></i>
                                         <!-- <span class="nav-shop__circle">3</span>  -->
                                     </a></button> </li>
-                            <li class="nav-item"><a class="button button-header" href="index.php?act=sanpham">Mua ngay</a></li>
+                            <!-- <li class="nav-item"><a class="button button-header" href="index.php?act=sanpham">Mua ngay</a></li> -->
                         </ul>
                     </div>
 

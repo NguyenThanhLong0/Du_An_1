@@ -6,11 +6,11 @@ extract($onesp);
 	<div class="container h-100">
 		<div class="blog-banner">
 			<div class="text-center">
-				<h1>Chi tiết sản phẩm</h1>
+				<h1>SẢN PHẨM CHI TIẾT</h1>
 				<nav aria-label="breadcrumb" class="banner-breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
+						<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Sản phẩm chi tiết</li>
 					</ol>
 				</nav>
 			</div>
@@ -65,15 +65,28 @@ extract($onesp);
 										echo '<option value="' . $ma_mausac . '">' . $ten_mausac . '</option>';
 									}
 									?>
+
 								</select></span>
 						</li><br>
 					</ul><br>
 					<br>
 					<p>Mô tả: <?= $mota ?>.</p>
-					<div class="product_count">
-
+					<!-- <div class="product_count">
 						<a class="button primary-btn" href="#">Add to Cart</a>
-					</div>
+					</div> -->
+					<?php
+						
+                        echo '<form action="index.php?act=addtocart" method="post">
+                                <input type="hidden" name="ma_sanpham" value="' . $ma_sanpham . '">
+                                <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
+                                <input type="hidden" name="hinh" value="'.$hinh.'">
+                                <input type="hidden" name="gia_sanpham" value="' . $gia_sanpham . '">
+                                <input type="hidden" name="ten_mausac" value="' . $ten_mausac. '">
+                                <input type="hidden" name="ten_size" value="' .$ten_size.'">
+								<input type="submit" class="button primary-btn" name="addtocart" value="Thêm vào giỏ hàng">
+                                
+                            </form>';
+                        ?>
 
 				</div>
 			</div>

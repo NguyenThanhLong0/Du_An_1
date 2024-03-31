@@ -25,6 +25,11 @@
         <span style="color: red"><?= isset($error['diachi']) ? $error['diachi'] : ''  ?></span>
       </div>
       <div class="form-group">
+        Số điện thoại: <br>
+        <input type="text" name="sdt" id="" placeholder="Nhập số điện thoại">
+        <span style="color: red"><?= isset($error['sdt']) ? $error['sdt'] : ''  ?></span>
+      </div>
+      <div class="form-group">
         Tài khoản: <br>
         <input type="text" name="taikhoan" id="" placeholder="Nhập tài khoản">
         <span style="color: red"><?= isset($error['taikhoan']) ? $error['taikhoan'] : ''  ?></span>

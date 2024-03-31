@@ -1,4 +1,3 @@
-
 <main class="site-main">
     <!--================ Hero banner start =================-->
     <section class="hero-banner">
@@ -27,33 +26,21 @@
         <div class="owl-carousel owl-theme hero-carousel">
             <div class="hero-carousel__slide">
                 <img src="img/home/anh1.jpg" alt="" class="img-fluid">
-                <!-- <a href="#" class="hero-carousel__slideOverlay">
-                    <h3>Wireless Headphone</h3>
-                    <p>Accessories Item</p>
-                </a> -->
+
             </div>
             <div class="hero-carousel__slide">
                 <img src="img/home/anh2.jpg" alt="" class="img-fluid">
-                <!-- <a href="#" class="hero-carousel__slideOverlay">
-                    <h3>Wireless Headphone</h3>
-                    <p>Accessories Item</p>
-                </a> -->
+
             </div>
             <div class="hero-carousel__slide">
                 <img src="img/home/anh3.jpg" alt="" class="img-fluid">
-                <!-- <a href="#" class="hero-carousel__slideOverlay">
-                    <h3>Wireless Headphone</h3>
-                    <p>Accessories Item</p>
-                </a> -->
+
             </div>
             <div class="hero-carousel__slide">
                 <img src="img/home/anh4.jpg" alt="" class="img-fluid">
-                <!-- <a href="#" class="hero-carousel__slideOverlay">
-                    <h3>Wireless Headphone</h3>
-                    <p>Accessories Item</p>
-                </a> -->
+
             </div>
-            
+
         </div>
     </section>
     <!--================ Hero Carousel end =================-->
@@ -65,34 +52,30 @@
                 <p>Popular Item in the market</p>
                 <h2>Trending <span class="section-intro__style">Product</span></h2>
             </div>
+            <!-- // <li><button><i class="ti-heart"></i></button></li> -->
             <div class="row">
                 <?php
                 $i = 0;
                 $spnew = loadall_sanpham_home();
+
                 foreach ($spnew as $sp) {
                     extract($sp);
                     $linksp = "index.php?act=sanphamct&ma_sanpham=" . $ma_sanpham;
                     $hinh = $img_path . $hinh;
 
                     echo '<div class="col-md-6 col-lg-4 col-xl-3">
+                   
                             <div class="card text-center card-product">
                                         <div class="card-product__img">
                                             <a href="' . $linksp . '"><img class="card-img" src="' . $hinh . '" alt="" /></a>
-                                            <ul class="card-product__imgOverlay">
-                                                <form action="index.php?act=addtocart" method="post">
-                                                    <li>
-                                                        <input type="hidden" name="ma_sanpham" value="' . $ma_sanpham . '">
-                                                        <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
-                                                        <input type="hidden" name="hinh" value="' . $hinh . '">
-                                                        <input type="hidden" name="gia_sanpham" value="' . $gia_sanpham . '">
-                                                        <button type="submit" name="addtocart" ><i class="ti-shopping-cart"></i></button>
-                                                    </li>
-                                                    <li><button><i class="ti-heart"></i></button></li>
-                                                </form>
-                                            </ul>
+                                            
+                                                <ul class="card-product__imgOverlay">
+                                                        <li>
+                                                            <a href="' . $linksp . '"><p class="card-product__price">Quick view</p></a>
+                                                        </li>
+                                                </ul>
                                         </div>
                                         <div class="card-body">
-                                            <p>hhhh</p>
                                             <h4 class="card-product__title"><a href="' . $linksp . '">' . $ten_sanpham . '</a></h4>
                                             <p class="card-product__price">$' . $gia_sanpham . '</i></p>
                                         </div>

@@ -1,12 +1,12 @@
 <!-- ================ start banner area ================= -->
-<section class="blog-banner-area" id="category">
+<section class="blog-banner-area" style="height: 200px;" id="category">
     <div class="container h-100">
         <div class="blog-banner">
             <div class="text-center">
-                <h1>Quên mật khẩu</h1>
+                <h1>QUÊN MẬT KHẨU</h1>
                 <nav aria-label="breadcrumb" class="banner-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Đăng nhập/Quên mật khẩu</li>
                     </ol>
                 </nav>

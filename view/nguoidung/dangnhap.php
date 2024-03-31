@@ -3,10 +3,10 @@
     <div class="container h-100">
         <div class="blog-banner">
             <div class="text-center">
-                <h1>Đăng Nhập</h1>
+                <h1>ĐĂNG NHẬP</h1>
                 <nav aria-label="breadcrumb" class="banner-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
                     </ol>
                 </nav>
@@ -55,6 +55,11 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <button class="button button-account">
+                                    <a class="button button-login w-100" href="index.php?act=doimk">ĐỔI MẬT KHẨU</a>
+                                </button>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button class="button button-account">
                                     <a class="button button-login w-100" href="index.php?act=thoat">ĐĂNG XUẤT</a>
                                 </button>
                             </div>
@@ -68,7 +73,7 @@
                                 <input type="text" class="form-control" id="taikhoan" name="taikhoan" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="matkhau" name="matkhau" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                                <input type="password" class="form-control" id="matkhau" name="matkhau" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">

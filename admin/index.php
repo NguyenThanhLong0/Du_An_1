@@ -267,6 +267,11 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                         $error['diachi'] = "không được để trống!";
                         $check = false;
                     }
+                    $sdt = $_POST['sdt'];
+                    if (empty($sdt)) {
+                        $error['sdt'] = "không được để trống!";
+                        $check = false;
+                    }
                     $taikhoan = $_POST['taikhoan'];
                     if (empty($taikhoan)) {
                         $error['taikhoan'] = "không được để trống!";
@@ -281,7 +286,7 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
 
 
                     if ($check) {
-                        insert_nguoidung($hoten, $email, $diachi, $taikhoan, $matkhau, $vaitro);
+                        insert_nguoidung($hoten, $email, $diachi,$sdt, $taikhoan, $matkhau, $vaitro);
                         $thongbao = "Thêm thành công";
                     }
                 }
@@ -314,10 +319,11 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                     $hoten = $_POST['hoten'];
                     $email = $_POST['email'];
                     $diachi = $_POST['diachi'];
+                    $sdt = $_POST['sdt'];
                     $taikhoan = $_POST['taikhoan'];
                     $matkhau = $_POST['matkhau'];
                     $vaitro = $_POST['vaitro'];
-                    update_nguoidung($ma_nguoidung, $hoten, $email, $diachi, $taikhoan, $matkhau, $vaitro);
+                    update_nguoidung($ma_nguoidung, $hoten, $email, $diachi,$sdt, $taikhoan, $matkhau, $vaitro);
                     $thongbao = "Cập nhật thành công";
                 }
                 $listnguoidung = loadall_nguoidung();

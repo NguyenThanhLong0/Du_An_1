@@ -31,6 +31,11 @@ if (is_array($nguoidung)) {
                                                   echo $diachi; ?>">
       </div>
       <div class="form-group">
+        Số điện thoại <br>
+        <input type="text" name="sdt" value="<?php if (isset($sdt) && ($sdt != ""))
+                                                  echo $sdt; ?>">
+      </div>
+      <div class="form-group">
         Tài Khoản <br>
         <input type="text" name="taikhoan" value="<?php if (isset($taikhoan) && ($taikhoan != ""))
                                                 echo $taikhoan; ?>">

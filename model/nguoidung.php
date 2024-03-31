@@ -1,12 +1,12 @@
 <?php
-function insert_nguoidung($hoten,$email,$diachi,$taikhoan, $matkhau, $vaitro)
+function insert_nguoidung($hoten,$email,$diachi,$sdt,$taikhoan, $matkhau, $vaitro)
 {
-    $sql = "INSERT INTO nguoidung (hoten,email,diachi,taikhoan,matkhau,vaitro) VALUES ('$hoten','$email','$diachi','$taikhoan','$matkhau','$vaitro')";
+    $sql = "INSERT INTO nguoidung (hoten,email,diachi,sdt,taikhoan,matkhau,vaitro) VALUES ('$hoten','$email','$diachi','$sdt','$taikhoan','$matkhau','$vaitro')";
     pdo_execute($sql);
 }
-function insert_nguoidung_view($hoten,$email,$diachi,$taikhoan, $matkhau)
+function insert_nguoidung_view($hoten,$email,$diachi,$sdt,$taikhoan, $matkhau)
 {
-    $sql = "INSERT INTO nguoidung (hoten,email,diachi,taikhoan,matkhau) VALUES ('$hoten','$email','$diachi','$taikhoan','$matkhau')";
+    $sql = "INSERT INTO nguoidung (hoten,email,diachi,sdt,taikhoan,matkhau) VALUES ('$hoten','$email','$diachi','$sdt','$taikhoan','$matkhau')";
     pdo_execute($sql);
 }
 function checktaikhoan($taikhoan, $matkhau)
@@ -21,10 +21,16 @@ function checkemail($email)
     $sp = pdo_query_one($sql);
     return $sp;
 }
-function update_nguoidung($ma_nguoidung, $hoten, $email, $diachi, $taikhoan,$matkhau,$vaitro)
+function update_nguoidung($ma_nguoidung, $hoten, $email, $diachi,$sdt, $taikhoan,$matkhau,$vaitro)
 {
-    $sql = "UPDATE nguoidung SET hoten='" . $hoten . "', email='" . $email . "', diachi='" . $diachi . "', taikhoan='" . $taikhoan . "', matkhau='" . $matkhau . "', vaitro ='" . $vaitro . "' WHERE ma_nguoidung=" . $ma_nguoidung;
+    $sql = "UPDATE nguoidung SET hoten='" . $hoten . "', email='" . $email . "', diachi='" . $diachi . "', sdt='" . $sdt . "', taikhoan='" . $taikhoan . "', matkhau='" . $matkhau . "', vaitro ='" . $vaitro . "' WHERE ma_nguoidung=" . $ma_nguoidung;
 
+    pdo_execute($sql);
+}
+function update_matkhau($ma_nguoidung, $newpass)
+{
+    $sql = "UPDATE nguoidung SET matkhau= '" . $newpass . "' WHERE ma_nguoidung=" . $ma_nguoidung;
+   
     pdo_execute($sql);
 }
 // admin
@@ -44,4 +50,7 @@ function loadone_nguoidung($ma_nguoidung)
     $sp = pdo_query_one($sql);
     return $sp;
 }
+
+
+
 ?>

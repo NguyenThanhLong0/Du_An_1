@@ -3,10 +3,10 @@
     <div class="container h-100">
         <div class="blog-banner">
             <div class="text-center">
-                <h1>Cập nhật thông tin tài khoản người dùng</h1>
+                <h1>CẬP NHẬT THÔNG TIN TÀI KHOẢN NGƯỜI DÙNG</h1>
                 <nav aria-label="breadcrumb" class="banner-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Đăng nhập/Cập nhật thông tin tài khoản người dùng</li>
                     </ol>
                 </nav>
@@ -49,12 +49,13 @@
                         <input type="text" class="form-control" id="diachi" name="diachi" placeholder="Địa chỉ" value="<?= $diachi ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ'">
                     </div>
                     <div class="col-md-12 form-group">
+                        <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Số điện thoại" value="<?= $sdt ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Số điện thoại'">
+                    </div>
+                    <div class="col-md-12 form-group">
                         <input type="text" class="form-control" id="username" name="taikhoan" placeholder="Username" value="<?= $taikhoan ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                     </div>
                     <div class="col-md-12 form-group">
-                        <input type="text" class="form-control" id="password" name="matkhau" placeholder="Password" value="<?= $matkhau ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-                    </div>
-                    <div class="col-md-12 form-group">
+                        <input type="hidden" class="form-control" id="password" name="matkhau" placeholder="Password" value="<?= $matkhau ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                         <input type="hidden" name="ma_nguoidung" value="<?= $ma_nguoidung ?>">
                         <input type="hidden" name="vaitro" value="<?= $vaitro ?>">
                         <button type="submit" name="capnhat" value="submit" class="button button-register w-100">Cập Nhật</button>

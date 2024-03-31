@@ -6,7 +6,7 @@
                 <h1>ĐĂNG KÝ</h1>
                 <nav aria-label="breadcrumb" class="banner-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Đăng ký</li>
                     </ol>
                 </nav>
@@ -43,10 +43,13 @@
                             <input type="text" class="form-control" id="diachi" name="diachi" placeholder="Địa chỉ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ'">
                         </div>
                         <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Số điện thoại" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Số điện thoại'">
+                        </div>
+                        <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="username" name="taikhoan" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="password" name="matkhau" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            <input type="password" class="form-control" id="password" name="matkhau" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                         </div>
 
                         <!-- <div class="col-md-12 form-group">

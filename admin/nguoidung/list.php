@@ -11,6 +11,7 @@
             <th>Họ tên</th>
             <th>Email</th>
             <th>Địa chỉ</th>
+            <th>Số điện thoại</th>
             <th>Tài khoản</th>
             <th>Mật Khẩu</th>
             <th>Vai Trò</th>
@@ -26,6 +27,7 @@
                             <td>' . $hoten . '</td>
                             <td>' . $email . '</td>
                             <td>' . $diachi . '</td>
+                            <td>' . $sdt . '</td>
                             <td>' . $taikhoan . '</td>
                             <td>' . $matkhau . '</td>
                             <td>' . $vaitro . '</td>
