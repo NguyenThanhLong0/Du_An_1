@@ -35,21 +35,27 @@
                     <form class="row login_form" action="index.php?act=dangky" id="register_form" method="post">
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="hoten" name="hoten" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'">
+                            <span style="color: red"><?= isset($error['hoten']) ? $error['hoten'] : ''  ?></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                            <span style="color: red"><?= isset($error['email']) ? $error['email'] : ''  ?></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="diachi" name="diachi" placeholder="Địa chỉ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ'">
+                            <span style="color: red"><?= isset($error['diachi']) ? $error['diachi'] : ''  ?></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="sdt" name="sdt" placeholder="Số điện thoại" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Số điện thoại'">
+                            <span style="color: red"><?= isset($error['sdt']) ? $error['sdt'] : ''  ?></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="username" name="taikhoan" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                            <span style="color: red"><?= isset($error['taikhoan']) ? $error['taikhoan'] : ''  ?></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="password" class="form-control" id="password" name="matkhau" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            <span style="color: red"><?= isset($error['matkhau']) ? $error['matkhau'] : ''  ?></span>
                         </div>
 
                         <!-- <div class="col-md-12 form-group">

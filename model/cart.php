@@ -171,7 +171,7 @@ function insert_donhang($makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $pttt, $ngayd
 }
 function loadone_donhang($ma_donhang)
 {
-    $sql = "SELECT * FROM donhang WHERE $ma_donhang =" . $ma_donhang;
+    $sql = "SELECT * FROM donhang WHERE ma_donhang =" . $ma_donhang;
     $donhang = pdo_query_one($sql);
     return $donhang;
 }
@@ -233,3 +233,16 @@ function get_ttdh($n){
 //     $listtk = pdo_query($sql);
 //     return $listtk;
 // }
+function loadone_donmua($id) //Đơn mua 
+{
+    $sql = "SELECT * FROM donhang WHERE makh=" . $id;
+    $bill = pdo_query_one($sql);
+    return $bill;
+}
+function listdonmua($id) //Load all đơn mua theo $_session['user']['id']
+{
+    $sql = "SELECT * FROM donhang WHERE makh=" . $id ;
+    $sql .= " ORDER BY ma_donhang DESC";
+    $bill = pdo_query($sql);
+    return $bill;
+}

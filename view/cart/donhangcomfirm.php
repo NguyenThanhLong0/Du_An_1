@@ -27,12 +27,13 @@
                     <h3 class="billing-title">Thông tin đơn hàng</h3>
                     <table class="order-rable">
                         <?php
-                        if (isset($donhang) && $donhang)
+                        if (isset($donhang) && ($donhang)) {
                             extract($donhang);
+                        }
                         ?>
                         <tr>
                             <td>Mã đơn hàng: </td>
-                            <td>DA1- <?= isset($donhang['ma_donhang']) ? $donhang['ma_donhang'] : '' ?></td>
+                            <td>DA1- <?=  $donhang['ma_donhang'] ?></td>
                         </tr>
                         <tr>
                             <td>Ngày đặt hàng: </td>
@@ -40,7 +41,7 @@
                         </tr>
                         <tr>
                             <td>Tổng đơn hàng: </td>
-                            <td><?= $donhang['tong'] ?></td>
+                            <td>$<?= $donhang['tong'] ?></td>
                         </tr>
 
                         <tr>

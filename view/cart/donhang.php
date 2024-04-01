@@ -1,3 +1,8 @@
+<?php
+if (empty($_SESSION['taikhoan'])) {
+    echo '<script>alert("Vui lòng đăng nhập để tiếp tục !");</script>';
+    echo "<script>window.location.href = 'index.php?act=dangnhap';</script>";
+} ?>
 <!-- ================ start banner area ================= -->
 <section class="blog-banner-area" style="height: 200px;" id="category">
     <div class="container h-100">
@@ -80,12 +85,7 @@
                                 <td>Thanh toán VNpay</td>
                             </tr>
 
-                            <!-- <tr>
-                                <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="view/thanhtoan/ttmomoqr.php">
-                                    <input type="submit" name="momo" id="" value="Thanh toán MOMO QR">
-                                    <<-- <td>Thanh toán online</td> 
-                                </form>
-                            </tr> -->
+                            
 
                         </table>
 
@@ -93,6 +93,9 @@
                 </div>
 
             </div>
+            
+              
+                            
             <div class="order_details_table">
                 <h2>Thông tin giỏ hàng</h2>
                 <div class="table-responsive">
@@ -168,6 +171,8 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form><form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="view/thanhtoan/ttmomoqr.php">
+                    <input type="submit" name="momo" id="" value="Thanh toán MOMO QR">
+                </form>
 </section>
 <!--================End Order Details Area =================-->

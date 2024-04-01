@@ -118,15 +118,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
     case 'billcomfirm':
       if (isset($_POST['dydathang']) && ($_POST['dydathang'])) {
-        if ($_SESSION['taikhoan']) 
-        $makh = $_SESSION['taikhoan']['ma_nguoidung'];
+        if ($_SESSION['taikhoan']) $makh = $_SESSION['taikhoan']['ma_nguoidung'];
         else $ma_nguoidung = 0;
         $tenkh = $_POST['hoten'];
         $dc_dh = $_POST['diachi'];
         $sdt_dh = $_POST['sdt'];
         $email_dh = $_POST['email'];
         $pttt = $_POST['pttt'];
-        $ngaydathang = date('H:i:sa d/m/Y');
+        $ngaydathang = date('d/m/Y');
         $tongdonhang = tongdonhang();
 
         $ma_donhang = insert_donhang($makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $pttt, $ngaydathang, $tongdonhang);
@@ -134,25 +133,64 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
           insert_cart($_SESSION['taikhoan']['ma_nguoidung'], $cart[0], $cart[2], $cart[1], $cart[3], $cart[4], $cart[5], $cart[6], $cart[7], $ma_donhang);
         }
         //xóa session cart
-        // $_SESSION['mycart'] = [];
+        $_SESSION['mycart'] = [];
       }
       $donhang = loadone_donhang($ma_donhang);
       $donhangct = loadall_cart($ma_donhang);
       include "../aroma-master/view/cart/donhangcomfirm.php";
       break;
 
+    // case 'donmua':
+    //   if (isset($_SESSION['taikhoan'])) {
+    //     extract($_SESSION['taikhoan']);
+    //     $id = $_SESSION['taikhoan']['ma_nguoidung'];
+    //     $donmua = loadone_donmua($id);
+    //     $listdonmua = listdonmua($id);
+    //   }
+    //   include "view/cart/donmua.php";
+    //   break;
 
       // nguoi dùng
     case 'dangky':
+      $error = [];
       if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+        $check = true;
         $hoten = $_POST['hoten'];
+        if (empty($hoten)) {
+          $error['hoten'] = "không được để trống!";
+          $check = false;
+        }
+
         $email = $_POST['email'];
+        if (empty($email)) {
+          $error['email'] = "không được để trống!";
+          $check = false;
+        }
+
         $diachi = $_POST['diachi'];
+        if (empty($diachi)) {
+          $error['diachi'] = "không được để trống!";
+          $check = false;
+        }
         $sdt = $_POST['sdt'];
+        if (empty($sdt)) {
+          $error['sdt'] = "không được để trống!";
+          $check = false;
+        }
         $taikhoan = $_POST['taikhoan'];
+        if (empty($taikhoan)) {
+          $error['taikhoan'] = "không được để trống!";
+          $check = false;
+        }
         $matkhau = $_POST['matkhau'];
-        insert_nguoidung_view($hoten, $email, $diachi,$sdt, $taikhoan, $matkhau);
-        $thongbao = "Chúc mừng bạn đăng ký thành công. Vui lòng đăng nhập để trải nghiệm nào!";
+        if (empty($matkhau)) {
+          $error['matkhau'] = "không được để trống!";
+          $check = false;
+        }
+        if ($check) {
+          insert_nguoidung_view($hoten, $email, $diachi, $sdt, $taikhoan, $matkhau);
+          $thongbao = "Chúc mừng bạn đăng ký thành công. Vui lòng đăng nhập để trải nghiệm nào!";
+        }
       }
       include "view/nguoidung/dangky.php";
       break;
@@ -183,7 +221,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         $matkhau = $_POST['matkhau'];
         $ma_nguoidung = $_POST['ma_nguoidung'];
         $vaitro = $_POST['vaitro'];
-        update_nguoidung($ma_nguoidung, $hoten, $email, $diachi,$sdt, $taikhoan, $matkhau, $vaitro);
+        update_nguoidung($ma_nguoidung, $hoten, $email, $diachi, $sdt, $taikhoan, $matkhau, $vaitro);
         $_SESSION['taikhoan'] = checktaikhoan($taikhoan, $matkhau);
         $thongbao = "Cập nhật thông tin thành công!";
         // header('Location: index.php?act=capnhattk');
@@ -192,33 +230,32 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       break;
 
     case 'doimk':
-        if (isset($_POST['dydoimk']) && ($_POST['dydoimk'])) {
-            // Kiểm tra và lấy dữ liệu từ form
-            if (isset($ma_nguoidung)) $ma_nguoidung = $_POST['$ma_nguoidung'];
-           
-            $matkhau = $_POST['matkhau'];
-            $newpass = $_POST['newpass'];
-            $repass = $_POST['repass'];
+      if (isset($_POST['dydoimk']) && ($_POST['dydoimk'])) {
+        // Kiểm tra và lấy dữ liệu từ form
+        if (isset($ma_nguoidung)) $ma_nguoidung = $_POST['$ma_nguoidung'];
 
-            if ($matkhau == "" || $newpass == "" || $repass == "") {
-                $thongbao = "Nhập đầy đủ thông tin!";
-            } elseif (isset($_SESSION['taikhoan'])) {
-                // Kiểm tra người dùng đã đăng nhập
-                $taikhoan = $_SESSION['taikhoan'];
-                if ($matkhau !== $taikhoan['matkhau']) {
-                    $thongbao = "Mật khẩu hiện tại không chính xác!";
-                } else if ($newpass !== $repass) {
-                    $thongbao = "Mật khẩu nhập lại không trùng khớp!";
-                } else {
-                  $ma_nguoidung = $_SESSION['taikhoan']['ma_nguoidung'];
-                    // Gọi hàm update_matkhau() để cập nhật mật khẩu mới
-                    update_matkhau($ma_nguoidung, $newpass);
-                    $thongbao = "Đổi mật khẩu thành công!";
-                }
-            } else {
-                $thongbao = "Người dùng không hợp lệ!";
-            }
-        
+        $matkhau = $_POST['matkhau'];
+        $newpass = $_POST['newpass'];
+        $repass = $_POST['repass'];
+
+        if ($matkhau == "" || $newpass == "" || $repass == "") {
+          $thongbao = "Nhập đầy đủ thông tin!";
+        } elseif (isset($_SESSION['taikhoan'])) {
+          // Kiểm tra người dùng đã đăng nhập
+          $taikhoan = $_SESSION['taikhoan'];
+          if ($matkhau !== $taikhoan['matkhau']) {
+            $thongbao = "Mật khẩu hiện tại không chính xác!";
+          } else if ($newpass !== $repass) {
+            $thongbao = "Mật khẩu nhập lại không trùng khớp!";
+          } else {
+            $ma_nguoidung = $_SESSION['taikhoan']['ma_nguoidung'];
+            // Gọi hàm update_matkhau() để cập nhật mật khẩu mới
+            update_matkhau($ma_nguoidung, $newpass);
+            $thongbao = "Đổi mật khẩu thành công!";
+          }
+        } else {
+          $thongbao = "Người dùng không hợp lệ!";
+        }
       }
       include "view/nguoidung/doimk.php";
       break;

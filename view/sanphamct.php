@@ -47,8 +47,8 @@ extract($onesp);
 					<h2>$ <?= $gia_sanpham ?></h2>
 					<ul class="list">
 						<li><a class="active" href="#"><span>Danh mục</span> : <?= $tendm_nam . $tendm_nu ?></a></li>
-						<!-- <li><a href="#"><span>Availibility</span> : In Stock</a></li> -->
-						<li><span><select name="ma_size" id="" class="form-select">
+						<li><span>
+							<select name="ma_size" id="" class="form-select">
 									<option value="0" selected>Chọn size</option>
 									<?php
 									foreach ($listsize as $s) {
