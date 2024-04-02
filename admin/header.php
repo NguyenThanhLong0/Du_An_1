@@ -40,6 +40,9 @@
           <li>
             <a href="index.php?act=dsbl">Quản lý Bình luận</a>
           </li>
+          <li>
+            <a href="index.php?act=listdh">Quản lý đơn hàng</a>
+          </li>
 
         </ul>
         <!-- giỏ hàng đk đn -->

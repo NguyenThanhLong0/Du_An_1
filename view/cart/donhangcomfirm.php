@@ -85,14 +85,13 @@
                     <thead>
                         <tr>
                             <th scope="col">Product</th>
-                            <th scope="col">Quantity</th>
+                            <th scope="col">Số lượng</th>
                             <th scope="col">Giá</th>
                             <th scope="col">Thành tiền</th>
                         </tr>
                     </thead>
                     <?php
                     don_hang_ct($donhangct);
-                    $_SESSION['mycart'] = [];
                     ?>
 
                 </table>

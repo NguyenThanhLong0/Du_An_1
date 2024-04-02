@@ -50,7 +50,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         $ma_sanpham = $_GET['ma_sanpham'];
         $onesp = loadone_sanpham($ma_sanpham);
         extract($onesp);
-        // $sp_cung_loai = load_sanpham_cungloai($ma_sanpham, $ma_danh_muc); //luu ý
+
         $sp_cung_loai = load_sanpham_cungloai($ma_sanpham, $ma_danh_muc_nam, $ma_danh_muc_nu);
         $listsize = loadall_size();
         $listmausac = loadall_mausac();
@@ -63,20 +63,34 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       break;
 
     case 'giohang':
+
       include "view/cart/viewcart.php";
       break;
 
     case 'addtocart':
       if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
 
+
         $ma_sanpham = $_POST['ma_sanpham'];
         $ten_sanpham = $_POST['ten_sanpham'];
         $hinh = $_POST['hinh'];
         $gia_sanpham = $_POST['gia_sanpham'];
-        $ten_size = $_POST['ten_size'];
-        $ten_mausac = $_POST['ten_mausac'];
-        // $ma_size = $_POST['ma_size'];
-        // $ma_mausac = $_POST['ma_mausac'];
+        // $ten_size = $_POST['selected_size'];
+
+
+        $ma_mausac = $_POST['selected_mausac'];
+        $onems = loadone_mausac($ma_mausac);
+        if (isset($_POST['selected_mausac'])) {
+          $ten_mausac = $onems['ten_mausac'];
+        }
+
+        $ma_size = $_POST['selected_size'];
+        $onesize = loadone_size($ma_size);
+        if (isset($_POST['selected_size'])) {
+          $ten_size = $onesize['ten_size'];
+        }
+        // $ten_mausac = $_POST['selected_mausac'];
+
         if (isset($_POST['soluong'])) {
           $soluong = $_POST['soluong'];
         } else {
@@ -125,7 +139,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         $sdt_dh = $_POST['sdt'];
         $email_dh = $_POST['email'];
         $pttt = $_POST['pttt'];
-        $ngaydathang = date('d/m/Y');
+        $ngaydathang = date('Y-m-d H:i:s');
         $tongdonhang = tongdonhang();
 
         $ma_donhang = insert_donhang($makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $pttt, $ngaydathang, $tongdonhang);
@@ -133,22 +147,22 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
           insert_cart($_SESSION['taikhoan']['ma_nguoidung'], $cart[0], $cart[2], $cart[1], $cart[3], $cart[4], $cart[5], $cart[6], $cart[7], $ma_donhang);
         }
         //xóa session cart
-        $_SESSION['mycart'] = [];
+        // $_SESSION['mycart'] = [];
       }
       $donhang = loadone_donhang($ma_donhang);
       $donhangct = loadall_cart($ma_donhang);
-      include "../aroma-master/view/cart/donhangcomfirm.php";
+      include "view/cart/donhangcomfirm.php";
       break;
 
-    // case 'donmua':
-    //   if (isset($_SESSION['taikhoan'])) {
-    //     extract($_SESSION['taikhoan']);
-    //     $id = $_SESSION['taikhoan']['ma_nguoidung'];
-    //     $donmua = loadone_donmua($id);
-    //     $listdonmua = listdonmua($id);
-    //   }
-    //   include "view/cart/donmua.php";
-    //   break;
+      // case 'donmua':
+      //   if (isset($_SESSION['taikhoan'])) {
+      //     extract($_SESSION['taikhoan']);
+      //     $id = $_SESSION['taikhoan']['ma_nguoidung'];
+      //     $donmua = loadone_donmua($id);
+      //     $listdonmua = listdonmua($id);
+      //   }
+      //   include "view/cart/donmua.php";
+      //   break;
 
       // nguoi dùng
     case 'dangky':

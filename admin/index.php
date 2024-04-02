@@ -10,6 +10,7 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
     include "../model/binhluan.php";
     include "../model/mausac.php";
     include "../model/size.php";
+    include "../model/cart.php";
     // controller
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
@@ -286,7 +287,7 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
 
 
                     if ($check) {
-                        insert_nguoidung($hoten, $email, $diachi,$sdt, $taikhoan, $matkhau, $vaitro);
+                        insert_nguoidung($hoten, $email, $diachi, $sdt, $taikhoan, $matkhau, $vaitro);
                         $thongbao = "Thêm thành công";
                     }
                 }
@@ -323,7 +324,7 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                     $taikhoan = $_POST['taikhoan'];
                     $matkhau = $_POST['matkhau'];
                     $vaitro = $_POST['vaitro'];
-                    update_nguoidung($ma_nguoidung, $hoten, $email, $diachi,$sdt, $taikhoan, $matkhau, $vaitro);
+                    update_nguoidung($ma_nguoidung, $hoten, $email, $diachi, $sdt, $taikhoan, $matkhau, $vaitro);
                     $thongbao = "Cập nhật thành công";
                 }
                 $listnguoidung = loadall_nguoidung();
@@ -345,8 +346,8 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 include "binhluan/list.php";
                 break;
                 // END Binhluan
-            
-            // Quản lí màu sắc
+
+                // Quản lí màu sắc
             case 'addms':
                 $error = [];
                 // Kiểm tra xem người dùng có click vào nút add hay không
@@ -401,7 +402,7 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 break;
                 // END Màu sắc
 
-            // Quản lí size
+                // Quản lí size
             case 'addsize':
                 $error = [];
                 // Kiểm tra xem người dùng có click vào nút add hay không
@@ -453,6 +454,61 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 include "size/list.php";
                 break;
                 // END size
+                //Quản lý đơn hàng
+            case 'listdh':
+                if (isset($_POST['listok']) && ($_POST['listok'] != "")) {
+                    $kyw = $_POST['kyw'];
+                } else {
+                    $kyw = '';
+                }
+                
+                $listbill = loadall_donhangs('',0);
+                include "donhang/list.php";
+                break;
+            case 'xoadh':
+                if (isset($_GET['ma_donhang']) && ($_GET['ma_donhang'] > 0)) {
+                    delete_donhang($_GET['ma_donhang']);
+                }
+                $listbill = loadall_donhangs("",0); //vuwaf suar donhang
+                // $listdonhang = loadall_donhang($makh);
+                include "donhang/list.php";
+                break;
+
+            case 'suadh':
+                if (isset($_GET['ma_donhang']) && ($_GET['ma_donhang'] > 0)) {
+                    $donhang = loadone_donhang($_GET['ma_donhang']);
+                }
+                include "donhang/update.php";
+                break;
+
+            case 'updatedh':
+                if (isset($_POST['update']) && ($_POST['update'])) {
+                    $ma_donhang = $_POST['ma_donhang'];
+                    $makh = $_POST['makh'];
+                    $tenkh = $_POST['tenkh'];
+                    $dc_dh = $_POST['dc_dh'];
+                    $sdt_dh = $_POST['sdt_dh'];
+                    $email_dh = $_POST['email_dh'];
+                    // $soluong = $_POST['soluong'];
+                    $ngaydathang = $_POST['ngaydathang'];
+                    // $pttt = $_POST['pttt'];
+                    $tong = $_POST['tong'];
+                    $trangthai_dh = $_POST['ttdh'];
+                    // $ma_donhang = $_POST['ma_donhang'];
+
+
+                    // $countsp = loadall_cart_count($donhang['ma_donhang']);
+                    $ttdh = get_ttdh("bill[trangthai_dh]");
+                    update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $ngaydathang, $tong, $trangthai_dh);
+                    $thongbao = "Cập nhật thành công";
+                }
+                //thieuloaihang
+                $listbill = loadall_donhangs("",0);
+
+                include "donhang/list.php";
+                break;
+                ///////////////////////////////////////////////////////////////////////////////////
+
 
             default:
                 include "home.php";

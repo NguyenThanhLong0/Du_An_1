@@ -106,7 +106,7 @@ function don_hang_ct($listdonhang)
     global $img_path;
     $tong = 0;
     $i = 0;
-    
+
     foreach ($listdonhang as $cart) {
         $hinh = $img_path . $cart['hinh'];
         $cart['thanhtien'] = $cart['gia_sanpham'] * $cart['soluong'];
@@ -114,21 +114,22 @@ function don_hang_ct($listdonhang)
         echo '<tbody>
         <tr>
           <td>
-            <p><img height="100px" src="' . $cart['hinh'] . '" alt="">'.$cart['ten_san_pham'].'</p>
+            <p><img height="100px" src="' . $cart['hinh'] . '" alt="">' . $cart['ten_san_pham'] . '</p>
           </td>
           
           <td>
-            <h5>x'.$cart['soluong'].'</h5>
+            <h5>x' . $cart['soluong'] . '</h5>
           </td>
           <td>
-            <h5>$'.$cart['gia_sanpham'].'</h5>
+            <h5>$' . $cart['gia_sanpham'] . '</h5>
           </td>
           <td>
-            <p>$'.$cart['thanhtien'].'</p>
+            <p>$' . $cart['thanhtien'] . '</p>
           </td>
         </tr>';
-        $i++;}
-echo '
+        $i++;
+    }
+    echo '
         <tr>
           <td>
             <h4>Total</h4>
@@ -138,11 +139,10 @@ echo '
           </td>
           <td></td>
           <td>
-            <h4>$'.$tong.'</h4>
+            <h4>$' . $tong . '</h4>
           </td>
         </tr>
       </tbody>';
-    
 }
 
 
@@ -157,7 +157,7 @@ function tongdonhang()
     return $tong;
 }
 
-function insert_cart($ma_nguoi_dung, $ma_san_pham, $hinh, $ten_san_pham, $gia_sanpham,$masize,$mamausac, $soluong, $thanhtien, $ma_donhang)
+function insert_cart($ma_nguoi_dung, $ma_san_pham, $hinh, $ten_san_pham, $gia_sanpham, $masize, $mamausac, $soluong, $thanhtien, $ma_donhang)
 {
     $sql = " insert into cart(ma_nguoi_dung,ma_san_pham,hinh,ten_san_pham,gia_sanpham,masize,mamausac,soluong,thanhtien,ma_donhang) values('$ma_nguoi_dung','$ma_san_pham','$hinh','$ten_san_pham','$gia_sanpham','$masize','$mamausac','$soluong','$thanhtien','$ma_donhang')";
     return pdo_execute($sql);
@@ -182,12 +182,7 @@ function loadall_cart($ma_donhang)
     $donhang = pdo_query($sql);
     return $donhang;
 }
-function loadall_donhang($makh)
-{
-    $sql = "SELECT * FROM donhang WHERE makh =" . $makh;
-    $listdonhang = pdo_query($sql);
-    return $listdonhang;
-}
+
 ///////////
 function loadall_cart_count($ma_donhang)
 {
@@ -195,44 +190,16 @@ function loadall_cart_count($ma_donhang)
     $donhang = pdo_query($sql);
     return sizeof($donhang);
 }
-// function loadall_bill($kyw="",$iduser= 0)
-// {
-//     $sql = "SELECT * FROM bill WHERE 1";
-//     if ($iduser > 0) $sql.= " AND iduser =" . $iduser;
-//     if ($kyw !="") $sql.= " AND id like '%" . $kyw."%'";
-//     $sql.= " ORDER BY id DESC";
-//     $listbill = pdo_query($sql);
-//     return $listbill;
-// }
-function get_ttdh($n){
-    switch ($n) {
-        case '0':
-           $tt = 'Đơn hàng mới';
-            break;
-        case '1':
-           $tt = 'Đang xử lí';
-            break;
-        case '2':
-           $tt = 'Đang giao hàng';
-            break;
-        case '3':
-           $tt = 'Hoàn tất';
-            break;
-        
-        default: 
-            $tt = 'Đơn hàng mới';
-            break;
-    }
-    return $tt;
+function loadall_bill($kyw = "", $makh = 0)
+{
+    $sql = "SELECT * FROM makh WHERE 1";
+    if ($makh > 0) $sql .= " AND makh =" . $makh;
+    if ($kyw != "") $sql .= " AND ma_donhang like '%" . $kyw . "%'";
+    $sql .= " ORDER BY ma_donhang DESC";
+    $listbill = pdo_query($sql);
+    return $listbill;
 }
 
-// function loadall_thongke(){ 
-//     $sql = "SELECT danhmuc.id as madm, danhmuc.name as tendm, count(sanpham.id) as countsp, min(sanpham.price) as minprice, max(sanpham.price) as maxprice, avg(sanpham.price) as avgprice";
-//     $sql.= " FROM sanpham left join danhmuc on danhmuc.id = sanpham.iddm";
-//     $sql.= " GROUP by danhmuc.id ORDER BY danhmuc.id DESC";
-//     $listtk = pdo_query($sql);
-//     return $listtk;
-// }
 function loadone_donmua($id) //Đơn mua 
 {
     $sql = "SELECT * FROM donhang WHERE makh=" . $id;
@@ -241,8 +208,63 @@ function loadone_donmua($id) //Đơn mua
 }
 function listdonmua($id) //Load all đơn mua theo $_session['user']['id']
 {
-    $sql = "SELECT * FROM donhang WHERE makh=" . $id ;
+    $sql = "SELECT * FROM donhang WHERE makh=" . $id;
     $sql .= " ORDER BY ma_donhang DESC";
     $bill = pdo_query($sql);
     return $bill;
 }
+
+//////////////////////////
+// them mois
+function loadall_donhangs($kyw = "", $makh = 0)
+{
+    $sql = "SELECT * FROM donhang WHERE 1";
+    if ($makh > 0) $sql .= " AND makh =" . $makh;
+    if ($kyw != "") $sql .= " AND ma_donhang like '%" . $kyw . "%'";
+    $sql .= " ORDER BY ma_donhang DESC";
+    $listbill = pdo_query($sql);
+    return $listbill;
+}
+function get_ttdh($n)
+{
+    switch ($n) {
+        case '0':
+            $tt = 'Đơn hàng mới';
+            break;
+        case '1':
+            $tt = 'Đang xử lí';
+            break;
+        case '2':
+            $tt = 'Đang giao hàng';
+            break;
+        case '3':
+            $tt = 'Hoàn tất';
+            break;
+
+        default:
+            $tt = 'Đơn hàng mới';
+            break;
+    }
+    return $tt;
+}
+
+function delete_donhang($ma_donhang)
+{
+    $sql = "DELETE FROM donhang WHERE ma_donhang=" . $ma_donhang;
+    pdo_execute($sql);
+}
+function update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $ngaydathang, $tong, $trangthai_dh)
+{
+    $sql = "UPDATE donhang SET makh='" . $makh . "', tenkh='" . $tenkh . "', dc_dh='" . $dc_dh . "', sdt_dh='" . $sdt_dh . "', email_dh='" . $email_dh . "', ngaydathang='" . $ngaydathang . "', tong='" . $tong . "', trangthai_dh='" . $trangthai_dh . "' WHERE ma_donhang = " . $ma_donhang;
+
+    pdo_execute($sql);
+}
+
+
+// function loadall_thongke(){ 
+//     $sql = "SELECT danhmuc.id as madm, danhmuc.name as tendm, count(sanpham.id) as countsp, min(sanpham.price) as minprice, max(sanpham.price) as maxprice, avg(sanpham.price) as avgprice";
+//     $sql.= " FROM sanpham left join danhmuc on danhmuc.id = sanpham.iddm";
+//     $sql.= " GROUP by danhmuc.id ORDER BY danhmuc.id DESC";
+//     $listtk = pdo_query($sql);
+//     return $listtk;
+// }

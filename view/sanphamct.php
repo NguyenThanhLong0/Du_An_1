@@ -1,6 +1,7 @@
 <?php
 extract($onesp);
 ?>
+
 <!-- ================ start banner area ================= -->
 <section class="blog-banner-area" style="height: 200px;" id="blog">
 	<div class="container h-100">
@@ -19,7 +20,7 @@ extract($onesp);
 </section>
 <!-- ================ end banner area ================= -->
 
-
+<?php echo '<form action="index.php?act=addtocart" method="post" enctype="multipart/form-data">' ?>
 <!--================Single Product Area =================-->
 <div class="product_image_area">
 	<div class="container">
@@ -33,12 +34,6 @@ extract($onesp);
 						echo '<img class="img-fluid" src="' . $hinh . '";>';
 						?>
 					</div>
-					<!-- <div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div>
-						<div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div> -->
 				</div>
 			</div>
 			<div class="col-lg-5 offset-lg-1">
@@ -47,47 +42,48 @@ extract($onesp);
 					<h2>$ <?= $gia_sanpham ?></h2>
 					<ul class="list">
 						<li><a class="active" href="#"><span>Danh mục</span> : <?= $tendm_nam . $tendm_nu ?></a></li>
-						<li><span>
-							<select name="ma_size" id="" class="form-select">
-									<option value="0" selected>Chọn size</option>
-									<?php
-									foreach ($listsize as $s) {
-										extract($s);
-										echo '<option value="' . $ma_size . '">' . $ten_size . '</option>';
-									}
-									?>
-								</select>
-								<select name="ma_mausac" id="" class="form-select">
-									<option value="0" selected>Chọn màu</option>
-									<?php
-									foreach ($listmausac as $mausac) {
-										extract($mausac);
-										echo '<option value="' . $ma_mausac . '">' . $ten_mausac . '</option>';
-									}
-									?>
+						<li>
 
-								</select></span>
+							<select name="selected_size" selected id="ma_size" class="form-select" >
+								<option value="0" >Chọn size</option>
+								<?php
+								foreach ($listsize as $s) {
+									extract($s);
+									echo '<option value="' . $ma_size . '">' . $ten_size . '</option>';
+								}
+								?>
+							</select>
+							<select name="selected_mausac"  id="ma_mausac" class="form-select">
+								<option  value="0" selected >Chọn màu</option>
+								<?php
+								foreach ($listmausac as $mausac) {
+									extract($mausac);
+									echo '<option value="' . $ma_mausac . '">' . $ten_mausac . '</option>';
+								}
+								?>
+							</select>
 						</li><br>
 					</ul><br>
 					<br>
+
 					<p>Mô tả: <?= $mota ?>.</p>
 					<!-- <div class="product_count">
 						<a class="button primary-btn" href="#">Add to Cart</a>
 					</div> -->
+					
 					<?php
-						
-                        echo '<form action="index.php?act=addtocart" method="post">
-                                <input type="hidden" name="ma_sanpham" value="' . $ma_sanpham . '">
+					echo '
+								<input type="hidden" name="ma_sanpham" value="' . $ma_sanpham . '">
                                 <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
-                                <input type="hidden" name="hinh" value="'.$hinh.'">
+                                <input type="hidden" name="hinh" value="' . $hinh . '">
                                 <input type="hidden" name="gia_sanpham" value="' . $gia_sanpham . '">
-                                <input type="hidden" name="ten_mausac" value="' . $ten_mausac. '">
-                                <input type="hidden" name="ten_size" value="' .$ten_size.'">
+								<input type="hidden" name="ten_size" id="selected_size" value="'.$ten_size.'">
+								<input type="hidden" name="ten_mausac" id="selected_mausac" value="'.$ten_mausac.'">
 								<input type="submit" class="button primary-btn" name="addtocart" value="Thêm vào giỏ hàng">
-                                
                             </form>';
-                        ?>
-
+					?>
+					<!-- <input type="hidden" name="selected_size" id="selected_size" value="'.$ten_size.'">
+								<input type="hidden" name="selected_mausac" id="selected_mausac" value="'.$ten_mausac.'"> -->
 				</div>
 			</div>
 		</div>
@@ -108,26 +104,26 @@ extract($onesp);
 
 			<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 				<!-- <div class="row"> -->
-					<!-- <div class="col-lg-6"> -->
+				<!-- <div class="col-lg-6"> -->
 
-						<!-- <div class="comment_list"> -->
-							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-							<script>
-								$(document).ready(function() {
-									$("#binhluan").load("view/binhluan/binhluanform.php", {
-										idpro: <?= $ma_sanpham ?>
-									});
-								});
-							</script>
-							<div id="binhluan">
+				<!-- <div class="comment_list"> -->
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+				<script>
+					$(document).ready(function() {
+						$("#binhluan").load("view/binhluan/binhluanform.php", {
+							idpro: <?= $ma_sanpham ?>
+						});
+					});
+				</script>
+				<div id="binhluan">
 
-							</div>
-						<!-- </div> -->
-					<!-- </div> -->
+				</div>
+				<!-- </div> -->
+				<!-- </div> -->
 
 				<!-- </div> -->
 			</div>
-			
+
 		</div>
 	</div>
 	</div>
@@ -141,31 +137,7 @@ extract($onesp);
 			<h2>Top 12 <span class="section-intro__style">Sản Phẩm</span></h2>
 		</div>
 		<div class="row mt-30">
-			<!-- <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
-				<div class="single-search-product-wrapper">
-					<div class="single-search-product d-flex">
-						<a href="#"><img src="img/product/product-sm-1.png" alt=""></a>
-						<div class="desc">
-							<a href="#" class="title">Gray Coffee Cup</a>
-							<div class="price">$170.00</div>
-						</div>
-					</div>
-					<div class="single-search-product d-flex">
-						<a href="#"><img src="img/product/product-sm-2.png" alt=""></a>
-						<div class="desc">
-							<a href="#" class="title">Gray Coffee Cup</a>
-							<div class="price">$170.00</div>
-						</div>
-					</div>
-					<div class="single-search-product d-flex">
-						<a href="#"><img src="img/product/product-sm-3.png" alt=""></a>
-						<div class="desc">
-							<a href="#" class="title">Gray Coffee Cup</a>
-							<div class="price">$170.00</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
+			
 			<?php
 			foreach ($dstop10 as $sp) {
 				extract($sp);

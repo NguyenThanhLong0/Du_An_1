@@ -25,7 +25,9 @@
         <div class="cart_inner">
             <div class="table-responsive">
                 <table class="table">
+                
                     <?php viewcart(1) ?>
+                    
                 </table>
             </div>
         </div>
