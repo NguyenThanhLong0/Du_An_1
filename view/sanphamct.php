@@ -41,11 +41,11 @@ extract($onesp);
 					<h3><?= $ten_sanpham ?></h3>
 					<h2>$ <?= $gia_sanpham ?></h2>
 					<ul class="list">
-						<li><a class="active" href="#"><span>Danh mục</span> : <?= $tendm_nam . $tendm_nu ?></a></li>
+						<li><a class="active"  href="#"><span>Danh mục</span> : <?= $tendm_nam . $tendm_nu ?></a></li>
 						<li>
-
-							<select name="selected_size" selected id="ma_size" class="form-select" >
-								<option value="0" >Chọn size</option>
+							
+							<select name="selected_size" required selected id="ma_size" class="form-select" >
+							<option  value="">Chọn Size</option>
 								<?php
 								foreach ($listsize as $s) {
 									extract($s);
@@ -53,8 +53,8 @@ extract($onesp);
 								}
 								?>
 							</select>
-							<select name="selected_mausac"  id="ma_mausac" class="form-select">
-								<option  value="0" selected >Chọn màu</option>
+							<select name="selected_mausac" required id="ma_mausac" class="form-select">
+								<option  value="">Chọn Màu</option>
 								<?php
 								foreach ($listmausac as $mausac) {
 									extract($mausac);
@@ -79,11 +79,9 @@ extract($onesp);
                                 <input type="hidden" name="gia_sanpham" value="' . $gia_sanpham . '">
 								<input type="hidden" name="ten_size" id="selected_size" value="'.$ten_size.'">
 								<input type="hidden" name="ten_mausac" id="selected_mausac" value="'.$ten_mausac.'">
-								<input type="submit" class="button primary-btn" name="addtocart" value="Thêm vào giỏ hàng">
+								<input type="submit"  class="button primary-btn" name="addtocart" value="Thêm vào giỏ hàng">
                             </form>';
 					?>
-					<!-- <input type="hidden" name="selected_size" id="selected_size" value="'.$ten_size.'">
-								<input type="hidden" name="selected_mausac" id="selected_mausac" value="'.$ten_mausac.'"> -->
 				</div>
 			</div>
 		</div>

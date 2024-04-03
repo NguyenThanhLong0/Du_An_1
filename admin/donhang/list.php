@@ -12,8 +12,8 @@
             <table>
                 <tr>
                     <th></th>
-                    <th>MÃ ĐƠN HÀNG</th>
-                    <th>KHÁCH HÀNG</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Khách hàng</th>
                     <!-- <th>PHƯƠNG THỨC THANH TOÁN</th> -->
                     <th>Số lượng</th>
                     <th>NGÀY ĐẶT HÀNG</th>

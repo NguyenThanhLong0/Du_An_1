@@ -17,6 +17,7 @@
       <div class="nav2">
         <ul class="menu">
           <li><a href="../index.php">Trở về trang khách hàng</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="index.php?act=adddm">Quản lý Danh mục</a>
             <ul class="sub-menu">
               <li><a href="index.php?act=adddm_nu">Danh mục Nữ</a></li>
@@ -42,6 +43,9 @@
           </li>
           <li>
             <a href="index.php?act=listdh">Quản lý đơn hàng</a>
+          </li>
+          <li>
+            <a href="index.php?act=thongke">Thống kê</a>
           </li>
 
         </ul>

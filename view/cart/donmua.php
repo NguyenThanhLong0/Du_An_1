@@ -1,4 +1,11 @@
 <?php
+
+if (empty($_SESSION['taikhoan'])) {
+    echo '<script>alert("Vui lòng đăng nhập để xem đơn mua !");</script>';
+    echo "<script>window.location.href = 'index.php?act=dangnhap';</script>";
+}
+?>
+<?php
 if (is_array($donmua)) {
     extract($donmua);
 }
@@ -24,63 +31,58 @@ if (is_array($donmua)) {
 <!--================Order Details Area =================-->
 <section class="order_details section-margin--small">
     <div class="container">
-        <p class="text-center billing-alert">Thank you. Đơn hàng của bạn đã được chúng tôi ghi nhận.</p>
+        <p class="text-center billing-alert">Thông tin về đơn hàng mà bạn đã đặt...</p>
         <div class="order_details_table">
-            <h2>Order Details</h2>
+            <h2>Đơn hàng của bạn:</h2>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Sản phẩm</th>
-                            <th scope="col">Số lượng</th>
-                            <th scope="col">Giá</th>
-                            <th scope="col">Thành tiền</th>
+                            <th scope="col">Mã đơn hàng</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Tình trạng</th>
+                            <th scope="col">Chi tiết</th>
+                            <th scope="col">Xác nhận</th>
                         </tr>
                     </thead>
                     <?php
-                    foreach ($listdonhang as $cart) {
-                    $hinh = $img_path . $cart['hinh'];
-                    $cart['thanhtien'] = $cart['gia_sanpham'] * $cart['soluong'];
-                    $tong += $cart['thanhtien'];
-                    echo '<tbody>
+                    foreach ($listdonmua as $donmua) {
+                        extract($donmua);
+                        $chitietdonmua = "index.php?act=chitietdonmua&ma_donhang=" . $ma_donhang;
+                        $ttdh = get_ttdh($trangthai_dh);
+                        if ($trangthai_dh == 2) {
+                            $da_nhan = '<input type="submit" name="xacnhan" value="Đã nhận" class="w80">';
+                        } else {
+                            $da_nhan = '';
+                        }
+                        echo '<tbody>
                         <tr>
                             <td>
-                                <p><img height="100px" src="' . $cart['hinh'] . '" alt="">'.$cart['ten_san_pham'].'</p>
+                                <p><a href="' . $chitietdonmua . '">DA1-' . $ma_donhang . '</a></p>
                             </td>
-
-                            <td>
-                                <h5>x'.$cart['soluong'].'</h5>
+                            <td ><a href="' . $chitietdonmua . '">' . $sdt_dh . '</a></td>
+                            <td ><a href="' . $chitietdonmua . '">' . $dc_dh . '</a></td>
+                            <td >$' . $tong .' </td>
+                            <td >' . $ttdh . '</td>
+                            <td ><a href="' . $chitietdonmua . '">Xem chi tiết</a></td>
+                            <td>      
+                                <form action="index.php?act=danhan" method="post">
+                                    <input type="hidden" name="id" value="' . $id . '">
+                                    ' . $da_nhan . '
+                                </form>
                             </td>
-                            <td>
-                                <h5>$'.$cart['gia_sanpham'].'</h5>
-                            </td>
-                            <td>
-                                <p>$'.$cart['thanhtien'].'</p>
-                            </td>
+                            
                         </tr>';
-                        $i++;}
-                        echo '
-                        <tr>
-                            <td>
-                                <h4>Total</h4>
-                            </td>
-                            <td>
-                                <h5></h5>
-                            </td>
-                            <td></td>
-                            <td>
-                                <h4>$'.$tong.'</h4>
-                            </td>
-                        </tr>
-                    </tbody>';
-
                     }
-
-
+                    echo '
+                    </tbody>';
+                    ?>
                 </table>
-                <br><br>
+                <br>
                 <div class="bottom_button">
-                    <a href="index.php"><input class="button" type="submit" value="Trở về Trang chủ"></a>
+                    <a href="index.php?act=sanpham"><input class="button" type="submit" value="Tiếp tục mua sắm"></a>
 
 
                 </div>

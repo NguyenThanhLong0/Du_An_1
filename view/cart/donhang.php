@@ -171,8 +171,9 @@ if (empty($_SESSION['taikhoan'])) {
                 </div>
             </div>
         </div>
-    </form><form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="view/thanhtoan/ttmomoqr.php">
+    </form>
+    <!-- <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="view/thanhtoan/ttmomoqr.php">
                     <input type="submit" name="momo" id="" value="Thanh toán MOMO QR">
-                </form>
+                </form> -->
 </section>
 <!--================End Order Details Area =================-->

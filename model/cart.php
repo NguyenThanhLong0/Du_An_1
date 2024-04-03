@@ -29,7 +29,7 @@ function viewcart($del)
         $ttien = $cart[3] * $cart[6];
         $tong += $ttien;
         if ($del == 1) {
-            $xoasp = '<td><a href="index.php?act=delcart&idcart= ' . $i . '"><i class="fa-regular fa-trash-can" style="color:red; font-size:18px">xóa</i></a></td>';
+            $xoasp = '<td> <a href="index.php?act=delcart&idcart= ' . $i . '" >xóa</a></td>';
         } else {
             $xoasp_td = '';
         }
@@ -229,20 +229,22 @@ function get_ttdh($n)
 {
     switch ($n) {
         case '0':
-            $tt = 'Đơn hàng mới';
+            $tt = "<span style='color: red; font-weight: bold;'>Chờ xác nhận</span>";
             break;
         case '1':
-            $tt = 'Đang xử lí';
+            $tt = "<span style='color: orange; font-weight: bold;'>Đã xác nhận</span>";
             break;
         case '2':
-            $tt = 'Đang giao hàng';
+            $tt = "<span style='color: orange; font-weight: bold;'>Đang giao hàng</span>";
             break;
         case '3':
-            $tt = 'Hoàn tất';
+            $tt = "<span style='color: blue; font-weight: bold;'>Đã nhận được hàng</span>";
             break;
-
+        case '4':
+            $tt = "<span style='color: green; font-weight: bold;'>Đã thanh toán</span>";
+            break;
         default:
-            $tt = 'Đơn hàng mới';
+            $tt = "<span style='color: red; font-weight: bold;'>Chờ xác nhận</span>";
             break;
     }
     return $tt;
@@ -268,3 +270,37 @@ function update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, 
 //     $listtk = pdo_query($sql);
 //     return $listtk;
 // }
+function da_nhan_hang($id)
+{
+    $sql = "UPDATE donhang SET trangthai_dh = '3' WHERE ma_donhang=" . $id;
+    pdo_execute($sql);
+}
+
+
+// model
+function loadall_thongke()
+{
+    $sql = "SELECT danhmuc_nu.ma_danhmuc_nu as madm, danhmuc_nu.ten_danhmuc_nu as tendm, count(sanpham.ma_sanpham) as countsp, min(sanpham.gia_sanpham) as minprice, max(sanpham.gia_sanpham) as maxprice, avg(sanpham.gia_sanpham) as avgprice";
+    $sql .= " FROM sanpham left join danhmuc_nu on danhmuc_nu.ma_danhmuc_nu = sanpham.ma_danh_muc_nu"; // Thay thế danhmuc bằng danhmuc_nu
+    $sql .= " GROUP by danhmuc_nu.ma_danhmuc_nu ORDER BY danhmuc_nu.ma_danhmuc_nu DESC"; // Thay thế danhmuc bằng danhmuc_nu
+    $listtk = pdo_query($sql);
+    return $listtk;
+}
+function loadall_thongke_nam()
+{
+    $sql = "SELECT danhmuc_nam.ma_danhmuc_nam as madm, danhmuc_nam.ten_danhmuc_nam as tendm, count(sanpham.ma_sanpham) as countsp, min(sanpham.gia_sanpham) as minprice, max(sanpham.gia_sanpham) as maxprice, avg(sanpham.gia_sanpham) as avgprice";
+    $sql .= " FROM sanpham LEFT JOIN danhmuc_nam ON danhmuc_nam.ma_danhmuc_nam = sanpham.ma_danh_muc_nam"; // Thay thế danhmuc_nu bằng danhmuc_nam
+    $sql .= " GROUP BY danhmuc_nam.ma_danhmuc_nam ORDER BY danhmuc_nam.ma_danhmuc_nam DESC"; // Thay thế danhmuc_nu bằng danhmuc_nam
+    $listtk = pdo_query($sql);
+    return $listtk;
+}
+
+
+
+////home ad
+function tong_doanhthu()
+{
+    $sql = "SELECT SUM(tong) FROM donhang WHERE trangthai_dh = '4' ";
+    $tongdoanhthu = pdo_query($sql);
+    return $tongdoanhthu;
+}

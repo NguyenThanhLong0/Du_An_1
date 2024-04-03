@@ -461,15 +461,15 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 } else {
                     $kyw = '';
                 }
-                
-                $listbill = loadall_donhangs('',0);
+
+                $listbill = loadall_donhangs('', 0);
                 include "donhang/list.php";
                 break;
             case 'xoadh':
                 if (isset($_GET['ma_donhang']) && ($_GET['ma_donhang'] > 0)) {
                     delete_donhang($_GET['ma_donhang']);
                 }
-                $listbill = loadall_donhangs("",0); //vuwaf suar donhang
+                $listbill = loadall_donhangs("", 0); //vuwaf suar donhang
                 // $listdonhang = loadall_donhang($makh);
                 include "donhang/list.php";
                 break;
@@ -503,11 +503,25 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                     $thongbao = "Cập nhật thành công";
                 }
                 //thieuloaihang
-                $listbill = loadall_donhangs("",0);
+                $listbill = loadall_donhangs("", 0);
 
                 include "donhang/list.php";
                 break;
                 ///////////////////////////////////////////////////////////////////////////////////
+                // thống kê
+            case 'thongke':
+                //(thong ke nu)
+                $listthongke = loadall_thongke();
+                $listthongke_nam = loadall_thongke_nam();
+                include "thongke/list.php";
+                break;
+
+            case 'bieudo':
+                $listthongke = loadall_thongke();
+                $listthongke_nam = loadall_thongke_nam();
+                include "thongke/bieudo.php";
+                break;
+                //end thống kê
 
 
             default:
