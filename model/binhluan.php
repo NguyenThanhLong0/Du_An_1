@@ -31,6 +31,11 @@ function load_ten_binhluan($iduser)
     }
 }
 
-
+function tong_binhluan()
+{
+    $sql = "SELECT * FROM binhluan WHERE 1";
+    $tongbl = pdo_query($sql);
+    return sizeof($tongbl);
+}
 
 ?>

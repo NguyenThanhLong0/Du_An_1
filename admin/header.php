@@ -20,22 +20,22 @@
           <li><a href="index.php">Home</a></li>
           <li><a href="index.php?act=adddm">Quản lý Danh mục</a>
             <ul class="sub-menu">
-              <li><a href="index.php?act=adddm_nu">Danh mục Nữ</a></li>
+              <li><a href="index.php?act=listdm_nu">Danh mục Nữ</a></li>
 
-              <li><a href="index.php?act=adddm_nam">Danh mục Nam</a></li>
+              <li><a href="index.php?act=listdm_nam">Danh mục Nam</a></li>
             </ul>
           </li>
           <li>
-            <a href="index.php?act=addsp">Quản lý Sản phẩm</a>
+            <a href="index.php?act=listsp">Quản lý Sản phẩm</a>
           </li>
           <li>
-            <a href="index.php?act=add_nguoidung">Quản lý Người Dùng</a>
+            <a href="index.php?act=dskh">Quản lý Người Dùng</a>
           </li>
           <li>
-            <a href="index.php?act=addms">Quản lý Màu sắc</a>
+            <a href="index.php?act=listms">Quản lý Màu sắc</a>
           </li>
           <li>
-            <a href="index.php?act=addsize">Quản lý Size</a>
+            <a href="index.php?act=listsize">Quản lý Size</a>
           </li>
           
           <li>

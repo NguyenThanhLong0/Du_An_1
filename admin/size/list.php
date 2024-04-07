@@ -3,6 +3,9 @@
     <div class="tieude">
         <h1>Danh sách Size</h1>
     </div>
+    <div class="form-group">
+        <a href="index.php?act=addsize"><input type="button" value="Thêm"></a>
+    </div>
     <div class="khungtables">
     <table class="table">
         <tr>
@@ -18,7 +21,7 @@
             echo '<tr>
                             <td>' . $ma_size . '</td>
                             <td>' . $ten_size . '</td>
-                            <td><a href="' . $suasize . '"><input type="button" value="Sửa"></a> <a href="' . $xoasize . '"><input type="button" value="Xóa"></a> <a href="index.php?act=addsize"><input type="button" value="Nhập thêm" /></a></td>
+                            <td><a href="' . $suasize . '"><input type="button" value="Sửa"></a> <a href="' . $xoasize . '"><input type="button" value="Xóa"></a></td>
                         </tr>';
         }
         ?>

@@ -6,11 +6,11 @@
   <div class="fromaddm">
     <form action="index.php?act=adddm_nam" method="post">
       <div class="form-group">
-        Mã danh mục _nam: <br>
-        <input type="text" name="ma_danhmuc_nam" id="" disabled placeholder="Mã tự động tăng">
+        Mã danh mục Nam: <br>
+        <input type="text" name="ma_danhmu Nm" id="" disabled placeholder="Mã tự động tăng">
       </div>
       <div class="form-group">
-        Tên danh mục _nam: <br>
+        Tên danh mục Nam: <br>
         <input type="text" name="ten_danhmuc_nam" id="" placeholder="Nhập tên danh mục">
         <span style="color: red"><?= isset($error['ten_danhmuc_nam']) ? $error['ten_danhmuc_nam'] : ''  ?></span>
       </div>

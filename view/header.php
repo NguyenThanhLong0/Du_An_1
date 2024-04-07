@@ -65,7 +65,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="index.php?act=sanpham">SẢN PHẨM</a></li>
-                            <li class="nav-item submenu dropdown">
+                            <!-- <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
@@ -74,7 +74,7 @@
                                     <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
                                     <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TÀI KHOẢN</a>
@@ -85,7 +85,7 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php?act=diachi">ĐỊA CHỈ</a></li>
                         </ul>
 
                         <ul class="nav-shop">
@@ -94,7 +94,7 @@
                                 <!-- <button type="submit"><i class="ti-search"></i></button> -->
                                 <form action="index.php?act=sanpham" method="post" class="input-group ">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search" required name="kyw">
+                                        <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" required name="kyw">
                                         <button type="submit" class="input-group-btn ti-search" name="timkiem" value="Tìm" style="background-color: #c0c0c0; width: 35px; border-top-right-radius: 5px;border-bottom-right-radius: 5px"></button>
                                     </div>
                                 </form>

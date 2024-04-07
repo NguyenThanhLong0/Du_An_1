@@ -29,7 +29,7 @@ function viewcart($del)
         $ttien = $cart[3] * $cart[6];
         $tong += $ttien;
         if ($del == 1) {
-            $xoasp = '<td> <a href="index.php?act=delcart&idcart= ' . $i . '" >xóa</a></td>';
+            $xoasp = '<td><a href="index.php?act=delcart&idcart=' . $i . '" onclick="return confirm(\'Bạn có chắc muốn xóa không?\')"><i class="fa-regular fa-trash-can" style="color:red; font-size:18px">xóa</i></a></td>';
         } else {
             $xoasp_td = '';
         }
@@ -250,14 +250,15 @@ function get_ttdh($n)
     return $tt;
 }
 
+
 function delete_donhang($ma_donhang)
 {
     $sql = "DELETE FROM donhang WHERE ma_donhang=" . $ma_donhang;
     pdo_execute($sql);
 }
-function update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $ngaydathang, $tong, $trangthai_dh)
+function update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $ngaydathang, $tong)
 {
-    $sql = "UPDATE donhang SET makh='" . $makh . "', tenkh='" . $tenkh . "', dc_dh='" . $dc_dh . "', sdt_dh='" . $sdt_dh . "', email_dh='" . $email_dh . "', ngaydathang='" . $ngaydathang . "', tong='" . $tong . "', trangthai_dh='" . $trangthai_dh . "' WHERE ma_donhang = " . $ma_donhang;
+    $sql = "UPDATE donhang SET makh='" . $makh . "', tenkh='" . $tenkh . "', dc_dh='" . $dc_dh . "', sdt_dh='" . $sdt_dh . "', email_dh='" . $email_dh . "', ngaydathang='" . $ngaydathang . "', tong='" . $tong . "' WHERE ma_donhang = " . $ma_donhang;
 
     pdo_execute($sql);
 }
@@ -270,11 +271,11 @@ function update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, 
 //     $listtk = pdo_query($sql);
 //     return $listtk;
 // }
-function da_nhan_hang($id)
-{
-    $sql = "UPDATE donhang SET trangthai_dh = '3' WHERE ma_donhang=" . $id;
-    pdo_execute($sql);
-}
+// function da_nhan_hang($id)
+// {
+//     $sql = "UPDATE donhang SET trangthai_dh = '3' WHERE ma_donhang=" . $id;
+//     pdo_execute($sql);
+// }
 
 
 // model
@@ -303,4 +304,35 @@ function tong_doanhthu()
     $sql = "SELECT SUM(tong) FROM donhang WHERE trangthai_dh = '4' ";
     $tongdoanhthu = pdo_query($sql);
     return $tongdoanhthu;
+}
+function tong_donhang()
+{
+    $sql = "SELECT * FROM donhang WHERE 1";
+    $tongdh = pdo_query($sql);
+    return sizeof($tongdh);
+}
+
+
+// long thêm từ đây
+function xacnhan_dh($ma_donhang)
+{
+    $sql = "UPDATE donhang SET trangthai_dh = '1' WHERE ma_donhang=" . $ma_donhang;
+    pdo_execute($sql);
+}
+function xacnhan_giaohang($ma_donhang)
+{
+    $sql = "UPDATE donhang SET trangthai_dh = '2' WHERE ma_donhang=" . $ma_donhang;
+    pdo_execute($sql);
+}
+
+function da_nhan_hang($ma_donhang)
+{
+    $sql = "UPDATE donhang SET trangthai_dh = '3' WHERE ma_donhang=" . $ma_donhang;
+    pdo_execute($sql);
+}
+
+function xacnhan_thanhtoan($ma_donhang)
+{
+    $sql = "UPDATE donhang SET trangthai_dh = '4' WHERE ma_donhang=" . $ma_donhang;
+    pdo_execute($sql);
 }

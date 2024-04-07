@@ -5,26 +5,24 @@
             <div class="row section_gap">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-footer-widget tp_widgets">
-                        <h4 class="footer_title large_title">Our Mission</h4>
+                        <h4 class="footer_title large_title">Aroma</h4>
                         <p>
-                            So seed seed green that winged cattle in. Gathering thing made fly you're no
-                            divided deep moved us lan Gathering thing us land years living.
+                        Như hạt giống màu xanh kia, mang trong mình sự sáng tạo và phong cách độc đáo. Tập hợp những sản phẩm tuyệt vời, khiến bạn cảm thấy tự do như chim bay trong không gian mua sắm trực tuyến.
                         </p>
-                        <p>
-                            So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved
-                        </p>
+                        <p>Chúng tôi không ngừng nỗ lực để tạo ra trải nghiệm mua sắm thú vị và độc đáo, giúp bạn thấy mình không bị chia cắt, mà thấu hiểu và di chuyển sâu vào thế giới thời trang nam nữ.</p>
+                        
                     </div>
                 </div>
                 <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
                     <div class="single-footer-widget tp_widgets">
-                        <h4 class="footer_title">Quick Links</h4>
+                        <h4 class="footer_title">Đường dẫn nhanh</h4>
                         <ul class="list">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Shop</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Product</a></li>
-                            <li><a href="#">Brand</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="index.php?act=sanpham">Sản phẩm</a></li>
+                            <!-- <li><a href="#">Blog</a></li> -->
+                            <!-- <li><a href="#">Product</a></li>
+                            <li><a href="#">Brand</a></li> -->
+                            <li><a href="index.php?act=diachi">Địa chỉ</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,21 +41,20 @@
                 </div>
                 <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
                     <div class="single-footer-widget tp_widgets">
-                        <h4 class="footer_title">Contact Us</h4>
+                        <h4 class="footer_title">Địa chỉ</h4>
                         <div class="ml-40">
                             <p class="sm-head">
                                 <span class="fa fa-location-arrow"></span>
-                                Head Office
+                               Trụ sở chính
                             </p>
-                            <p>123, Main Street, Your City</p>
+                            <p>Ngõ 80 Xuân Phương, Nam Từ Liêm, Hà Nội</p>
 
                             <p class="sm-head">
                                 <span class="fa fa-phone"></span>
-                                Phone Number
+                                Số điện thoại
                             </p>
                             <p>
-                                +123 456 7890 <br>
-                                +123 456 7890
+                                0985125849<br>
                             </p>
 
                             <p class="sm-head">
@@ -65,8 +62,8 @@
                                 Email
                             </p>
                             <p>
-                                free@infoexample.com <br>
-                                www.infoexample.com
+                                nguyenttph45116@gmail.com<br>
+                                <!-- www.infoexample.com -->
                             </p>
                         </div>
                     </div>
@@ -80,9 +77,9 @@
             <div class="row d-flex">
                 <p class="col-lg-12 footer-text text-center">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
+                     &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </script> Aroma | Mọi bản quyền thuộc về Công ty cổ phần thời trang <i class="fa fa-heart" aria-hidden="true"></i> by <a href="index.php" target="_blank">AROMA</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>

@@ -493,19 +493,17 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                     $ngaydathang = $_POST['ngaydathang'];
                     // $pttt = $_POST['pttt'];
                     $tong = $_POST['tong'];
-                    $trangthai_dh = $_POST['ttdh'];
                     // $ma_donhang = $_POST['ma_donhang'];
 
 
-                    // $countsp = loadall_cart_count($donhang['ma_donhang']);
-                    $ttdh = get_ttdh("bill[trangthai_dh]");
                     update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, $ngaydathang, $tong, $trangthai_dh);
-                    $thongbao = "Cập nhật thành công";
+                    $thongbao = "Cập nhật thành công";
+                    header("location: index.php?act=listdh");
                 }
                 //thieuloaihang
-                $listbill = loadall_donhangs("", 0);
+                // $listbill = loadall_donhangs("", 0);
 
-                include "donhang/list.php";
+                // include "donhang/list.php";
                 break;
                 ///////////////////////////////////////////////////////////////////////////////////
                 // thống kê
@@ -522,6 +520,42 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 include "thongke/bieudo.php";
                 break;
                 //end thống kê
+
+                //long thêm từ đây
+            case 'chitietdh':
+                if (isset($_GET['ma_donhang']) && ($_GET['ma_donhang'] > 0)) {
+
+                    $billct = loadall_cart($_GET['ma_donhang']);
+                    $donhang = loadone_donhang($_GET['ma_donhang']);
+                }
+                include('donhang/chitiet.php');
+                break;
+                //
+            case 'xacnhandh':
+                if (isset($_POST['ma_donhang']) && ($_POST['ma_donhang'] > 0)) {
+                    $ma_donhang = $_POST['ma_donhang'];
+                    xacnhan_dh($ma_donhang);
+                    header("location: index.php?act=chitietdh&ma_donhang=$ma_donhang");
+                }
+                break;
+
+            case 'xacnhangiaohang':
+                if (isset($_POST['ma_donhang']) && ($_POST['ma_donhang'] > 0)) {
+                    $ma_donhang = $_POST['ma_donhang'];
+                    xacnhan_giaohang($ma_donhang);
+                    header("location: index.php?act=listdh");
+                }
+                break;
+
+            case 'xacnhanthanhtoan':
+                if (isset($_POST['ma_donhang']) && ($_POST['ma_donhang'] > 0)) {
+                    $id = $_POST['ma_donhang'];
+                    xacnhan_thanhtoan($ma_donhang);
+                    header("location: index.php?act=listdh");
+                }
+                break;
+
+                //hêết long thêem
 
 
             default:

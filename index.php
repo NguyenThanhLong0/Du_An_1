@@ -69,7 +69,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
     case 'addtocart':
       if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
-     
+
         $ma_sanpham = $_POST['ma_sanpham'];
         $ten_sanpham = $_POST['ten_sanpham'];
         $hinh = $_POST['hinh'];
@@ -88,7 +88,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
           $ten_size = $onesize['ten_size'];
         }
 
-        
+
         // $ten_mausac = $_POST['selected_mausac'];
 
         if (isset($_POST['soluong'])) {
@@ -109,12 +109,11 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
           }
           $i++;
         }
-        
+
         if ($temp == 0) {
           $spadd = [$ma_sanpham, $ten_sanpham, $hinh, $gia_sanpham, $ten_size, $ten_mausac, $soluong, $ttien];
           array_push($_SESSION['mycart'], $spadd);
         }
-        
       }
       include "view/cart/viewcart.php";
       break;
@@ -175,15 +174,19 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       include "view/cart/chitietdonmua.php";
       break;
 
-    case 'danhan':
-      if (isset($_POST['xacnhan']) && ($_POST['xacnhan'])) {
-        if (isset($_POST['id']) && ($_POST['id'] > 0)) {
-          $id = $_POST['id'];
-          da_nhan_hang($id);
+    
+
+      case 'danhan':
+        if (isset($_POST['xacnhan']) && ($_POST['xacnhan'])) {
+          if (isset($_POST['ma_donhang']) && ($_POST['ma_donhang'] > 0)) {
+            $ma_Donhang = $_POST['ma_donhang'];
+            da_nhan_hang($ma_donhang);
+          }
+          // header("location: index.php?act=donmua");
+          echo '<script>window.location = "index.php?act=donmua";</script>';
+
         }
-        header("location: index.php?act=donmua");
-      }
-      break;
+        break;
       /////////end
 
       // nguoi dùng
@@ -325,8 +328,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       $listmausac = loadall_mausac();
       include "view/sanphamct.php";
       break;
-
-
+      ///////////////
+    
 
 
     case 'thoat':
@@ -344,7 +347,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     case 'dangky':
       include "view/nguoidung/dangky.php";
       break;
-
+    case 'diachi':
+      include "view/diachi.php";
+      break;
       // case 'delcart':
       //   header('location: index.php?act=viewcart');
       //   break;

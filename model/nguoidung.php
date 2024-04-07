@@ -52,5 +52,11 @@ function loadone_nguoidung($ma_nguoidung)
 }
 
 
+function tong_taikhoan()
+{
+    $sql = "SELECT * FROM nguoidung WHERE 1";
+    $tongdh = pdo_query($sql);
+    return sizeof($tongdh);
+}
 
 ?>

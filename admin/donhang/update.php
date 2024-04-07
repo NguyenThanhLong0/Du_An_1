@@ -2,7 +2,7 @@
 
 if (is_array($donhang)) {
     extract($donhang);
-}
+}$ttdh = get_ttdh($trangthai_dh);
 ?>
 
 <!-- thêm danh mục -->
@@ -50,14 +50,11 @@ if (is_array($donhang)) {
                     Giá trị đơn hàng<br>
                     <input type="text" name="tong" value="<?php if (isset($tong) && ($tong != "")) echo $tong; ?>">
                 </div>
-                <div class="form-group">
-                    Tình trạng đơn hàng <br>
-                    <input type="text" name="ttdh" value="<?php if (isset($ttdh) && ($ttdh != "")) echo $ttdh; ?>">
-                </div>
+                
             </div>
             <div class="form-group ">
                 <input type="hidden" name="ma_donhang" value=" <?php if (isset($ma_donhang) && ($ma_donhang > 0)) echo $ma_donhang; ?>">
-
+                
                 <input type="hidden" name="makh" value="<?= $makh; ?>">
                 <input type="submit" name="update" value="Cập nhật">
                 <input type="reset" value="Nhập lại">

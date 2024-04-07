@@ -10,14 +10,17 @@
 body {
   font-family: "Times New Roman", Times, serif;
 }
+
 header {
   background-color: hsl(0, 0%, 0%);
   color: #ffffff;
 }
+
 /* Kiểu cho điều hướng */
 .nav2 {
   margin: 8px 0;
 }
+
 /* menu */
 .nav2 .menu {
   list-style: none;
@@ -25,21 +28,25 @@ header {
   justify-content: center;
   align-items: center;
 }
-.nav2 .menu > li {
+
+.nav2 .menu>li {
   list-style: none;
   position: relative;
   padding: 10px 10px;
 }
+
 .nav2 .menu li a {
   text-decoration: none;
   color: #ffffff;
   text-transform: uppercase;
   font-size: 14px;
 }
-.nav2 .menu > li > a:hover {
+
+.nav2 .menu>li>a:hover {
   color: #fcaf17;
   transition: 2s;
 }
+
 /* menu con */
 .nav2 .sub-menu {
   display: none;
@@ -49,19 +56,23 @@ header {
   position: absolute;
   z-index: 1;
 }
+
 .nav2 .sub-menu li {
   list-style: none;
   padding: 10px 2px;
   box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.5);
 }
+
 /* menu con */
 .nav2 .sub-menu li a {
   color: rgb(255, 255, 255);
 }
+
 .nav2 .sub-menu li:hover {
   transition: 2s;
   background-color: #fcaf17;
 }
+
 .nav2 .sub-menu li a:hover {
   color: #333;
 }
@@ -69,6 +80,7 @@ header {
 .nav2 .menu li:hover .sub-menu {
   display: block;
 }
+
 /* end */
 .khungaddm {
   width: 1160px;
@@ -79,21 +91,25 @@ header {
   background-color: #eaeaea;
   box-shadow: 1px 1px 100px rgb(0, 0, 0, 0.5);
 }
+
 .tieude {
   color: #0a0060;
   margin: 2px 0 5px 0;
   text-align: center;
 }
+
 .khungaddm .form-group {
   margin: 10px;
 }
+
 .khungaddm .form-group input[type="text"],
-.khungaddm  .form-group input[type="password"] {
+.khungaddm .form-group input[type="password"] {
   padding: 5px 10px;
   width: 245px;
   border-radius: 5px;
   border: 1px solid rgb(195, 195, 195);
 }
+
 .khungaddm .form-group input[type="submit"],
 .khungaddm .form-group input[type="reset"],
 .khungaddm .form-group input[type="button"],
@@ -106,6 +122,7 @@ header {
   background-color: white;
   border: 1px solid #ccc;
 }
+
 .khungaddm .form-group input[type="submit"]:hover,
 .khungaddm .form-group input[type="reset"]:hover,
 .khungaddm .form-group input[type="button"]:hover,
@@ -117,19 +134,23 @@ header {
   border: 1px solid #ccc;
   color: #ffffff;
 }
+
 /* danh sách danh mục */
 .khungtables {
   padding: 0px 12px;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
 }
+
 table th {
   padding: 10px 20px;
   background-color: #ccc;
   border: 1px solid #a8a8a8;
 }
+
 table td {
   padding: 10px 20px;
   border: 1px solid #ccc;
@@ -155,27 +176,19 @@ table td {
   border-radius: 5px;
   border: 1px solid rgb(195, 195, 195);
 }
+
 .divkhungaddsp .form-group input[type="submit"],
 .divkhungaddsp .form-group input[type="reset"],
-.divkhungaddsp
-  .form-group
-  input[type="button"]
-  .divkhungaddsp
-  .form-group
-  input[type="file"] {
+.divkhungaddsp .form-group input[type="button"] .divkhungaddsp .form-group input[type="file"] {
   border-radius: 5px;
   padding: 5px 10px;
   background-color: white;
   border: 1px solid #ccc;
 }
+
 .divkhungaddsp .form-group input[type="submit"]:hover,
 .divkhungaddsp .form-group input[type="reset"]:hover,
-.khungaddm
-  .form-group
-  input[type="button"]:hover
-  .khungaddm
-  .form-group
-  input[type="file"]:hover {
+.khungaddm .form-group input[type="button"]:hover .khungaddm .form-group input[type="file"]:hover {
   border-radius: 5px;
   padding: 5px 10px;
   background-color: rgb(170, 170, 170);
@@ -234,7 +247,131 @@ table td {
   transform: scale(1.1, 1.1);
 }
 
-.cards:hover > .card:not(:hover) {
+.cards:hover>.card:not(:hover) {
   filter: blur(5px);
   transform: scale(0.9, 0.9);
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* ////////////////////// */
+.khungslide_home {
+  margin: 12px 0;
+}
+
+
+
+
+
+
+/*  */
+.btn-update {
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+  width: 50px;
+  height: 30px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-delete {
+  background-color: rgb(255, 202, 44);
+  color: #000;
+  font-weight: bold;
+  width: 50px;
+  height: 30px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-detail {
+  background-color: rgb(27, 155, 223);
+  color: #fff;
+  font-weight: bold;
+  width: 70px;
+  height: 30px;
+}
+
+.mr28 {
+  margin-right: 28px;
+}
+
+.btn-form-detail {
+  height: 40px;
+  width: 150px;
+  text-align: center;
+  margin-top: 20px;
+  float: right;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10%;
+}
+
+.form-confirm {
+  float: right;
+}
+
+.form-confirm input[type="submit"],
+button {
+  padding: 5px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  width: 170px;
+  background-color: rgb(13, 110, 253);
+  color: #fff;
+  font-weight: 500;
+  font-size: 15.5px;
+}
+
+.form-confirm input[type="submit"]:hover,
+button:hover {
+  opacity: 0.6;
+}
+
+.donhangct {
+  width: 98%;
+  border: 2px solid #ececec;
+  border-radius: 10px;
+  padding: 20px 20px;
+}
+
+.mt70 {
+  margin-top: 70px;
+}
+
+.statistics-title2 {
+  color: rgb(255, 193, 7);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.tb_detail {
+  width: 100%;
+}
+
+.tb_detail th {
+  text-align: left;
+  height: 40px;
+  color: #000;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+}
+
+.tb_detail th {
+  text-align: left;
+  height: 40px;
+  color: #000;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding: 0 10px;
+  width: 30%;
 }

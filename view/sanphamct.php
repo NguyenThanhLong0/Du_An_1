@@ -79,7 +79,7 @@ extract($onesp);
                                 <input type="hidden" name="gia_sanpham" value="' . $gia_sanpham . '">
 								<input type="hidden" name="ten_size" id="selected_size" value="'.$ten_size.'">
 								<input type="hidden" name="ten_mausac" id="selected_mausac" value="'.$ten_mausac.'">
-								<input type="submit"  class="button primary-btn" name="addtocart" value="Thêm vào giỏ hàng">
+								<input type="submit"  class="button primary-btn" name="addtocart" onclick="return confirm(\'Bạn muốn thêm sản phẩm vào giỏ hàng?\')" value="Thêm vào giỏ hàng">
                             </form>';
 					?>
 				</div>

@@ -128,5 +128,10 @@ function loadall_sanpham_top10()
     return $listsanpham;
 }
 
-
+function tong_sanpham()
+{
+    $sql = "SELECT * FROM sanpham WHERE 1";
+    $tongsp = pdo_query($sql);
+    return sizeof($tongsp);
+}
 ?>
