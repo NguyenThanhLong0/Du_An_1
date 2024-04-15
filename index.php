@@ -166,6 +166,19 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       include "view/cart/donmua.php";
       break;
 
+    case 'danhan':
+      if (isset($_POST['xacnhan1'])) {
+        $id = isset($_POST['id']) ? $_POST['id'] : 0;
+        if ($id > 0) {
+          da_nhan_hang($id);
+          echo '<script>alert("Đã nhận đơn hàng thành công!");</script>';
+        } else {
+          echo '<script>alert("ID đơn hàng không hợp lệ!");</script>';
+        }
+        echo '<script>window.location = "index.php?act=donmua";</script>';
+      }
+
+      break;
     case 'chitietdonmua':
       if (isset($_GET['ma_donhang']) && ($_GET['ma_donhang'] > 0)) {
         $billct = loadall_cart($_GET['ma_donhang']);
@@ -174,19 +187,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       include "view/cart/chitietdonmua.php";
       break;
 
-    
+      // case 'danhan':
+      //   if (isset($_POST['xacnhan1'])) {
+      //     if (isset($_POST['id']) && ($_POST['id'] : 0)) {
+      //       $id = $_POST['id'];
+      //       da_nhan_hang($id);
+      //     }
+      //     // header("location: index.php?act=donmua");
+      //     echo '<script>window.location = "index.php?act=donmua";</script>';
 
-      case 'danhan':
-        if (isset($_POST['xacnhan']) && ($_POST['xacnhan'])) {
-          if (isset($_POST['ma_donhang']) && ($_POST['ma_donhang'] > 0)) {
-            $ma_Donhang = $_POST['ma_donhang'];
-            da_nhan_hang($ma_donhang);
-          }
-          // header("location: index.php?act=donmua");
-          echo '<script>window.location = "index.php?act=donmua";</script>';
-
-        }
-        break;
+      //   }
+      //   break;
       /////////end
 
       // nguoi dùng
@@ -243,6 +254,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
           $_SESSION['taikhoan'] = $checkuser;
           // $thongbao = "Bạn đã dăng nhập thành công!";
           // header('Location: index.php');
+          echo '<script>window.location = "index.php";</script>';
         } else {
           $thongbao = "Tài khoản không tồn tại. Vui lòng kiểm tra lại hoặc đăng ký!";
         }
@@ -329,12 +341,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
       include "view/sanphamct.php";
       break;
       ///////////////
-    
 
 
     case 'thoat':
       session_unset();
-      session_destroy();
       // header('Location: index.php');
       // header("Location: index.php");
       echo '<script>window.location = "index.php?act=dangnhap";</script>';

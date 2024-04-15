@@ -98,7 +98,7 @@
                     <div class="offer__content text-center">
                         <h3>Up To 50% Off</h3>
                         <h4>Winter Sale</h4>
-                        <p>Him she'd let them sixth saw light</p>
+                        <p>Mua sắm ngay tại Aroma để nhận thêm nhiều ưu đãi!</p>
                         <a class="button button--active mt-3 mt-xl-4" href="index.php?act=sanpham">MUA NGAY</a>
                     </div>
                 </div>
@@ -127,19 +127,14 @@
                                     <a href="' . $linksp . '"><img class="img-fluid" src="' . $hinh . '" alt="" /></a>
                                     <ul class="card-product__imgOverlay">
                                         <form action="index.php?act=addtocart" method="post">
+                                            
                                             <li>
-                                                <input type="hidden" name="ma_sanpham" value="' . $ma_sanpham . '">
-                                                <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
-                                                <input type="hidden" name="hinh" value="' . $hinh . '">
-                                                <input type="hidden" name="gia_sanpham" value="' . $gia_sanpham . '">
-                                                <button type="submit" name="addtocart" ><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                            <li><button><i class="ti-heart"></i></button></li>
+                                                            <a href="' . $linksp . '"><p class="card-product__price">Quick view</p></a>
+                                                        </li>
                                         </form>
                                     </ul>
                                 </div>
                             <div class="card-body">
-                                    <p>hhhh</p>
                                     <h4 class="card-product__title"><a href="' . $linksp . '">' . $ten_sanpham . '</a></h4>
                                     <p class="card-product__price">$' . $gia_sanpham . '</i></p>
                             </div>

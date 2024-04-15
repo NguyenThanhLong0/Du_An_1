@@ -29,7 +29,7 @@ function viewcart($del)
         $ttien = $cart[3] * $cart[6];
         $tong += $ttien;
         if ($del == 1) {
-            $xoasp = '<td><a href="index.php?act=delcart&idcart=' . $i . '" onclick="return confirm(\'Bạn có chắc muốn xóa không?\')"><i class="fa-regular fa-trash-can" style="color:red; font-size:18px">xóa</i></a></td>';
+            $xoasp = '<td><a href="index.php?act=delcart&idcart=' . $i . '" onclick="return confirm(\'Bạn có chắc muốn xóa sản phẩm khỏi giỏ hàng không?\')"><i class="ti-trash" style="color:red; font-size:18px"></i></a></td>';
         } else {
             $xoasp_td = '';
         }
@@ -87,7 +87,7 @@ function viewcart($del)
                 <td></td>
                 <td>
                     <div class="cupon_text d-flex align-items-center">
-                        <a class="button" href="index.php?act=delcart">Xóa giỏ hàng?</a>
+                        <a class="button" onclick="return confirm(\'Bạn có chắc muốn xóa giỏ hàng không?\')" href="index.php?act=delcart">Xóa giỏ hàng?</a>
                     </div>
                 </td>
                 <td></td>
@@ -132,7 +132,7 @@ function don_hang_ct($listdonhang)
     echo '
         <tr>
           <td>
-            <h4>Total</h4>
+            <h4>TỔNG TIỀN ĐƠN HÀNG</h4>
           </td>
           <td>
             <h5></h5>
@@ -271,11 +271,6 @@ function update_donhang($ma_donhang, $makh, $tenkh, $dc_dh, $sdt_dh, $email_dh, 
 //     $listtk = pdo_query($sql);
 //     return $listtk;
 // }
-// function da_nhan_hang($id)
-// {
-//     $sql = "UPDATE donhang SET trangthai_dh = '3' WHERE ma_donhang=" . $id;
-//     pdo_execute($sql);
-// }
 
 
 // model
@@ -325,9 +320,15 @@ function xacnhan_giaohang($ma_donhang)
     pdo_execute($sql);
 }
 
-function da_nhan_hang($ma_donhang)
+// function da_nhan_hang($id)
+// {
+//     $sql = "UPDATE donhang SET `trangthai_dh` = '3' WHERE ma_donhang=" . $id;
+//     pdo_execute($sql);
+// }
+function da_nhan_hang($id)
 {
-    $sql = "UPDATE donhang SET trangthai_dh = '3' WHERE ma_donhang=" . $ma_donhang;
+    // Cập nhật trạng thái đơn hàng thành "Đã nhận" (mã trạng thái là 3)
+    $sql = "UPDATE donhang SET `trangthai_dh` = '3' WHERE ma_donhang = $id";
     pdo_execute($sql);
 }
 

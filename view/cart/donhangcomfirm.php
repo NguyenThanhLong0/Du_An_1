@@ -79,12 +79,12 @@
 
         </div>
         <div class="order_details_table">
-            <h2>Order Details</h2>
+            <h2>Đơn hàng của bạn</h2>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Product</th>
+                            <th scope="col">Sản phẩm</th>
                             <th scope="col">Số lượng</th>
                             <th scope="col">Giá</th>
                             <th scope="col">Thành tiền</th>

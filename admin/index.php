@@ -458,11 +458,11 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
             case 'listdh':
                 if (isset($_POST['listok']) && ($_POST['listok'] != "")) {
                     $kyw = $_POST['kyw'];
+                    
                 } else {
                     $kyw = '';
                 }
-
-                $listbill = loadall_donhangs('', 0);
+                $listbill = loadall_donhangs($kyw);
                 include "donhang/list.php";
                 break;
             case 'xoadh':
@@ -524,11 +524,10 @@ if (isset($_SESSION['taikhoan']) && ($_SESSION['taikhoan']['vaitro'] == 1)) {
                 //long thêm từ đây
             case 'chitietdh':
                 if (isset($_GET['ma_donhang']) && ($_GET['ma_donhang'] > 0)) {
-
                     $billct = loadall_cart($_GET['ma_donhang']);
                     $donhang = loadone_donhang($_GET['ma_donhang']);
                 }
-                include('donhang/chitiet.php');
+                include "donhang/chitiet.php";
                 break;
                 //
             case 'xacnhandh':

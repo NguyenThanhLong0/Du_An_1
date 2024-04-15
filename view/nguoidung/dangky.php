@@ -31,7 +31,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="login_form_inner register_form_inner">
-                    <h3>TẠO MỘT TÀI KHOẢN</h3>
+                    <h3>ĐĂNG KÝ</h3>
                     <form class="row login_form" action="index.php?act=dangky" id="register_form" method="post">
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="hoten" name="hoten" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'">

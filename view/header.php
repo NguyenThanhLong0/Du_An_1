@@ -79,8 +79,22 @@
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TÀI KHOẢN</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="index.php?act=dangnhap">ĐĂNG NHẬP</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="index.php?act=dangky">ĐĂNG KÝ</a></li>
+                                    <?php
+                                    if (isset($_SESSION['taikhoan'])) {
+                                        extract($_SESSION['taikhoan']);
+                                        echo '<li class="nav-item">
+                                        <a class="nav-link" href="index.php?act=dangnhap"><i class="ti-user"></i>'.$taikhoan.'</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="index.php?act=thoat">ĐĂNG XUẤT</a>
+                                        </li>';
+                                    }else {
+                                    echo '<li class="nav-item">
+                                        <a class="nav-link" href="index.php?act=dangnhap">ĐĂNG NHẬP</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="index.php?act=dangky">ĐĂNG KÝ</a></li>';
+                                    }
+                                    ?>
                                     <li class="nav-item"><a class="nav-link" href="index.php?act=donmua">ĐƠN MUA</a></li>
                                 </ul>
                             </li>

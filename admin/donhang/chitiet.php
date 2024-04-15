@@ -12,14 +12,13 @@ if (is_array($billct)) {
 $ttdh = get_ttdh($trangthai_dh);
 
 ?>
-<div class="box-right">
-    <div class="title-page">
-        <p>Chi tiết đơn hàng</p>
+<div class="khungaddm">
+    <div class="tieude">
+        <h1>Chi tiết đơn hàng</h1>
     </div>
-
-    <div class="btn-form-detail mr10">
+    <div class="btn-form-detail ">
         <?php
-           $xoadh = "index.php?act=xoadh&ma_donhang=" . $ma_donhang;
+        $xoadh = "index.php?act=xoadh&ma_donhang=" . $ma_donhang;
         echo '
         <div >
             <a href="' . $suadh . '"  class="btn-update">Sửa</a>
@@ -31,10 +30,10 @@ $ttdh = get_ttdh($trangthai_dh);
         ?>
     </div>
 
-    <div class="mt70 donhangct">
-        <div class="row pd10">
+    <div class=" donhangct">
+        <div class="form-group">
             <div class="title">
-                <p>Thông tin khách hàng</p>
+                <h2>Thông tin khách hàng</h2>
             </div>
             <table class="tb_detail">
                 <?php
@@ -70,7 +69,7 @@ $ttdh = get_ttdh($trangthai_dh);
 
                     <tr>
                         <th>Đơn giá</th>
-                        <td>' . number_format($tong) . ' <u>$</u></td>
+                        <td>$' . $tong . '</td>
                     </tr>
 
                     <tr>
@@ -79,9 +78,9 @@ $ttdh = get_ttdh($trangthai_dh);
                     </tr>';
                 ?>
             </table>
-        </div>
+     </div>
     </div>
-
+    <div class="nutxn">
     <?php
     if ($trangthai_dh == 0) {
         echo '<div class="form-confirm mr28">
@@ -99,22 +98,22 @@ $ttdh = get_ttdh($trangthai_dh);
         </form>
     </div>';
     }
-    if ($trangthai_dh == 3) {
-        echo '<div class="form-confirm mr28">
-        <form action="index.php?act=xacnhanthanhtoan" method="post">
-            <input type="hidden" name="ma_donhang" value="' . $ma_donhang . '">
-            <input type="submit" name="xacnhan" value="Thanh toán thành công">
-        </form>
-    </div>';
-    }
+    // if ($trangthai_dh == 3) {
+    //     echo '<div class="form-confirm mr28">
+    //     <form action="index.php?act=xacnhanthanhtoan" method="post">
+    //         <input type="hidden" name="ma_donhang" value="' . $ma_donhang . '">
+    //         <input type="submit" name="xacnhan" value="Thanh toán thành công">
+    //     </form>
+    // </div>';
+    // }
+    ?></div>
+<br>
 
-    ?>
-
-    <div class="mt90 donhangct">
-        <div class="statistics-title2 pd10" style="margin-top: 0;">
-            <p>Thông tin đơn hàng</p>
+    <div class="form-group">
+        <div class="title" >
+            <h2>Thông tin đơn hàng</h2>
         </div>
-        <div class="row form-content pd10">
+        <div class="row form-content ">
             <table>
                 <tr>
                     <th>Mã sản phẩm</th>
@@ -123,62 +122,23 @@ $ttdh = get_ttdh($trangthai_dh);
                     <th>Đơn giá</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
-                    <!-- <th class="text-center">Thao tác</th> -->
                 </tr>
 
                 <?php
+                $img_path = "../upload/ ";
                 foreach ($billct as $bill) {
-                    extract($bill);
-                    $hinhpath = "../upload/" . $hinh;
-                    if (is_file($hinhpath)) {
-                        $hinh = "<img src='" . $hinhpath . "' height='80'>";
-                    } else {
-                        $hinh = "Không có hình ảnh";
-                    }
-                    echo '<tr>
-    <td>' . $ma_donhang  . '</td>
-    <td>' . $ten_san_pham . '</td>
-    <td>' . $hinh . '</td>
-    <td>' . number_format($gia_sanpham, 0, ",", ".") . ' <u>$</u></td>
-    <td>' . $soluong . '</td>
-    <td>' . number_format($thanhtien, 0, ",", ".") . ' <u>$</u></td>
     
-</tr>';
+                    echo '<tr>
+                    <td>DA1-' . $bill['ma_donhang']  . '</td>
+                    <td>' . $bill['ten_san_pham'] . '</td>
+                    <td> <img src="' . $bill['hinh'] . '" height="100px" alt=""></td>
+                    <td>$' . $bill['gia_sanpham'] . '</td>
+                    <td>' . $bill['soluong'] . '</td>
+                    <td>$' . $bill['thanhtien'] . '</td>
+                          </tr>';
                 }
                 ?>
             </table>
         </div>
     </div>
 </div>
-<script>
-    // Gắn sự kiện lắng nghe cho tất cả các phần tử có class deleteLink
-    const deleteLinks = document.querySelectorAll('.deleteLink');
-    deleteLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
-
-            const ma_donhang = this.getAttribute('data-id'); // Lấy ID từ thuộc tính data
-            const xoadh = "index.php?act=xoadh&ma_donhang=" + ma_donhang;
-
-            Swal.fire({
-                title: "Xác nhận hủy đơn?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Xác nhận"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Thực hiện yêu cầu xóa thông qua Ajax hoặc window.location.href tại đây
-                    Swal.fire({
-                        title: "Đã hủy đơn hàng!",
-                        icon: "success"
-                    }).then(() => {
-                        // Chuyển hướng đến URL xóa
-                        window.location.href = xoadh;
-                    });
-                }
-            });
-        });
-    });
-</script>

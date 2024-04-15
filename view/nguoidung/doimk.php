@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="hidden" name="ma_nguoidung" value="<?= $ma_nguoidung ?>">
-                            <input type="submit" name="dydoimk" value="Đồng ý đổi mật khẩu" class="button button-register w-100"></input>
+                            <input type="submit" style="color: white" name="dydoimk" value="Đồng ý đổi mật khẩu" class="button button-register w-100"></input>
                         </div>
 
                     </form>

@@ -53,7 +53,7 @@ if (is_array($donmua)) {
                         $chitietdonmua = "index.php?act=chitietdonmua&ma_donhang=" . $ma_donhang;
                         $ttdh = get_ttdh($trangthai_dh);
                         if ($trangthai_dh == 2) {
-                            $da_nhan = '<input type="submit" name="xacnhan" value="Đã nhận" class="w80">';
+                            $da_nhan = '<input type="submit" name="xacnhan1" value="Đã nhận" class=" btn-success">';
                         } else {
                             $da_nhan = '';
                         }
@@ -69,7 +69,7 @@ if (is_array($donmua)) {
                             <td ><a href="' . $chitietdonmua . '">Xem chi tiết</a></td>
                             <td>      
                                 <form action="index.php?act=danhan" method="post">
-                                    <input type="hidden" name="id" value="' . $id . '">
+                                    <input type="hidden" name="id" value="' . $ma_donhang . '">
                                     ' . $da_nhan . '
                                 </form>
                             </td>

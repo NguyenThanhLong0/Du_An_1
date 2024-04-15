@@ -158,7 +158,7 @@ if (empty($_SESSION['taikhoan'])) {
 
                         <tr class="bottom_button">
                             <td>
-                                <input class="button" type="submit" value="XÁC NHẬN ĐẶT HÀNG" name="dydathang">
+                                <input class="button" type="submit" onclick="return confirm('Bạn có chắc muốn đồng ý đặt hàng không?')" value="ĐỒNG Ý NHẬN ĐẶT HÀNG" name="dydathang">
                             </td>
 
                         </tr>
