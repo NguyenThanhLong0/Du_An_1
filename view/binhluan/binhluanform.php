@@ -52,7 +52,7 @@ $tenbl = load_ten_binhluan($iduser);
         $noidung = $_POST['noidung'];
         $idpro = $_POST['idpro'];
         $iduser = $_SESSION['taikhoan']['ma_nguoidung'];
-        $ngaybinhluan = date('Y-m-d h:i:s');
+        $ngaybinhluan = date('d-m-Y h:i:s');
         load_ten_binhluan($iduser);
         insert_binhluan($noidung, $iduser, $idpro, $ngaybinhluan);
         // header("Location: " . $_SERVER['HTTP_REFERER']);

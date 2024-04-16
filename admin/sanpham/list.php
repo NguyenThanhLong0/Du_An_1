@@ -36,7 +36,7 @@
                 <th>Hình</th>
                 <th>Giá sản phẩm</th>
                 <th>Mô tả</th>
-                <th>Lượt xem</th>
+                
                 <th>Thao tác</th>
             </tr>
             <?php
@@ -56,7 +56,7 @@
                             <td>' . $hinh . '</td>
                             <td>' . $gia_sanpham . '</td>
                             <td>' . $mota . '</td>
-                            <td>' . $luotxem . '</td>
+                            
                             <td><a href="' . $suasp . '"><input type="button" value="Sửa"></a> <a href="' . $xoasp . '"><input type="button" value="Xóa"></a></td>
                         </tr>';
             }

@@ -18,7 +18,7 @@ function viewcart($del)
         <th scope="col">Giá</th>
         <th scope="col">Size</th>
         <th scope="col">Màu sắc</th>
-        <th scope="col">Số lướng</th>
+        <th scope="col">Số lượng</th>
         <th scope="col">Thành tiền</th>
         ' . $xoasp_th . '
     </tr>
