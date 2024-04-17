@@ -46,8 +46,8 @@ if (is_array($nguoidung)) {
                                                 echo $matkhau; ?>">
       </div>
       <div class="form-group">
-        Vai trò <br>
-        <input type="text" name="vaitro" value="<?php if (isset($vaitro) && ($vaitro != ""))
+      Vai Trò: Admin = 1 / Người dùng = 0<br>
+        <input type="number" name="vaitro" min="0" max="1" placeholder="Admin = 1 / Người dùng = 0" value="<?php if (isset($vaitro) && ($vaitro != ""))
                                                 echo $vaitro; ?>">
       </div>
       <div class="form-group">

@@ -21,10 +21,13 @@
                 <th>Thao tác</th>
             </tr>
             <?php
+
+
             foreach ($listnguoidung as $nguoidung) {
                 extract($nguoidung);
-                $suand = "index.php?act=suand&ma_nguoidung=" . $ma_nguoidung;
-                $xoand = "index.php?act=xoand&ma_nguoidung=" . $ma_nguoidung;
+                    $xoand = "index.php?act=xoand&ma_nguoidung=" . $ma_nguoidung;
+                    $suand = "index.php?act=suand&ma_nguoidung=" . $ma_nguoidung;
+                
                 echo '<tr>
                             <td>' . $ma_nguoidung . '</td>
                             <td>' . $hoten . '</td>

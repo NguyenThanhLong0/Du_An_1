@@ -81,8 +81,9 @@ if (is_array($billct)) {
 
         </div>
         <div class="container">
-            <div class="cart_inner">
+            <div class="cart_inner"><h4>Đơn hàng của bạn</h4>
                 <div class="table-responsive">
+                
                     <table class="table">
 
                         <?php

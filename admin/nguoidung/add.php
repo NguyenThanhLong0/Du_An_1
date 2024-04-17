@@ -40,8 +40,8 @@
         <span style="color: red"><?= isset($error['matkhau']) ? $error['matkhau'] : ''  ?></span>
       </div>
       <div class="form-group">
-        Vai Trò: <br>
-        <input type="text" name="vaitro" id="" placeholder="Nhập vai trò">
+        Vai Trò: Admin = 1 / Người dùng= 0<br>
+        <input type="number" name="vaitro" min="0" id="" max="1" placeholder="Admin = 1 / Người dùng = 0">
         <span style="color: red"><?= isset($error['vaitro']) ? $error['vaitro'] : ''  ?></span>
       </div>
       <div class="form-group">

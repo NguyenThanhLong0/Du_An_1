@@ -52,7 +52,7 @@ function viewcart($del)
                 <td>' . $cart[5] . '</td>
                 <td>
                     <div class="product_count">
-                        <input type="number" name="soluong" min="0" value="' . $cart[6] . '" title="Quantity:" class="input-text qty">
+                        <input type="number" name="soluong" min="1" value="' . $cart[6] . '" title="Quantity:" class="input-text qty">
 
                     </div>
                 </td>

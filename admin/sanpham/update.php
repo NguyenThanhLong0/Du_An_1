@@ -55,7 +55,7 @@ if (is_file($hinhpath)) {
       </div>
       <div class="form-group ">
         Giá sản phẩm<br>
-        <input type="text" name="gia_sanpham" value="<?= $gia_sanpham; ?>"><br>
+        <input type="number" min = "1" name="gia_sanpham" value="<?= $gia_sanpham; ?>"><br>
       </div>
       <div class="form-group">
         Mô tả <br>

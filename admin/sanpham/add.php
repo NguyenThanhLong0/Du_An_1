@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     Giá sản phẩm: <br>
-                    <input type="text" name="gia_sanpham" id="" placeholder="Nhập giá sản phẩm">
+                    <input type="number" min="1" name="gia_sanpham" id="" placeholder="Nhập giá sản phẩm">
                     <span style="color: red"><?= isset($error['gia_sanpham']) ? $error['gia_sanpham'] : ''  ?></span>
                 </div>
                 <div class="form-group">

@@ -103,7 +103,8 @@ header {
 }
 
 .khungaddm .form-group input[type="text"],
-.khungaddm .form-group input[type="password"] {
+.khungaddm .form-group input[type="password"],
+.khungaddm .form-group input[type="number"] {
   padding: 5px 10px;
   width: 245px;
   border-radius: 5px;
